@@ -1,3 +1,4 @@
+'use client';
 import Link from 'next/link';
 import LogoLight from '../logo/LogoLight';
 import { useState } from 'react';

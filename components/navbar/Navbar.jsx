@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -110,7 +111,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
             </ul>
           </li>
           <li className='nav-item'>
-            <Link href='/about' className='nav-link-item'>
+            <Link href='/home/about' className='nav-link-item'>
               About
             </Link>
           </li>
@@ -133,10 +134,10 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
               id='submenu-2'
             >
               <li className='sub-menu--item'>
-                <Link href='/services'>Services</Link>
+                <Link href='/home/service'>Services</Link>
               </li>
               <li className='sub-menu--item'>
-                <Link href='/service-details'>Service Details</Link>
+                <Link href='/home/service-details'>Service Details</Link>
               </li>
             </ul>
           </li>
@@ -179,10 +180,10 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   id='submenu-4'
                 >
                   <li className='sub-menu--item'>
-                    <Link href='/blog'>blogs</Link>
+                    <Link href='/home/blog'>blogs</Link>
                   </li>
                   <li className='sub-menu--item'>
-                    <Link href='/blog-details'>blog details</Link>
+                    <Link href='/home/blog-details'>blog details</Link>
                   </li>
                 </ul>
               </li>
@@ -207,10 +208,10 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   id='submenu-5'
                 >
                   <li className='sub-menu--item'>
-                    <Link href='/teams'>Teams</Link>
+                    <Link href='/home/team'>Teams</Link>
                   </li>
                   <li className='sub-menu--item'>
-                    <Link href='/team-details'>Teams Details</Link>
+                    <Link href='/home/team-details'>Teams Details</Link>
                   </li>
                 </ul>
               </li>
@@ -235,10 +236,10 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   id='submenu-6'
                 >
                   <li className='sub-menu--item'>
-                    <Link href='/faq-1'>FAQ-1</Link>
+                    <Link href='/home/faq-1'>FAQ-1</Link>
                   </li>
                   <li className='sub-menu--item'>
-                    <Link href='/faq-2'>FAQ-2</Link>
+                    <Link href='/home/faq-2'>FAQ-2</Link>
                   </li>
                 </ul>
               </li>
@@ -263,16 +264,18 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   id='submenu-7'
                 >
                   <li className='sub-menu--item'>
-                    <Link href='/portfolio'>Portfolio</Link>
+                    <Link href='/home/portfolio'>Portfolio</Link>
                   </li>
                   <li className='sub-menu--item'>
-                    <Link href='/portfolio-details'>Portfolio Details</Link>
+                    <Link href='/home/portfolio-details'>
+                      Portfolio Details
+                    </Link>
                   </li>
                 </ul>
               </li>
               <li className='sub-menu--item'>
                 <Link
-                  href='/pricing'
+                  href='/home/pricing'
                   data-menu-get='h3'
                   className='drop-trigger'
                 >
@@ -300,23 +303,23 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   id='submenu-8'
                 >
                   <li className='sub-menu--item'>
-                    <Link href='/error-404'>Error 404</Link>
+                    <Link href='/home/not-found'>404 Not Found</Link>
                   </li>
                   <li className='sub-menu--item'>
-                    <Link href='/login'>Login</Link>
+                    <Link href='/home/login'>Login</Link>
                   </li>
                   <li className='sub-menu--item'>
-                    <Link href='/signup'>Signup</Link>
+                    <Link href='/home/signup'>Signup</Link>
                   </li>
                   <li className='sub-menu--item'>
-                    <Link href='/reset-password'>Reset Password</Link>
+                    <Link href='/home/reset-password'>Reset Password</Link>
                   </li>
                 </ul>
               </li>
             </ul>
           </li>
           <li className='nav-item'>
-            <Link href='/contact' className='nav-link-item'>
+            <Link href='/home/contact' className='nav-link-item'>
               Contact
             </Link>
           </li>

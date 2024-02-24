@@ -5,7 +5,7 @@ const LogoLight = () => {
   return (
     <Link href='/'>
       <Image
-        src='/public//assets/img/logo-light.png'
+        src='/assets/img/logo-light.png'
         alt='AIMass'
         width='96'
         height='24'

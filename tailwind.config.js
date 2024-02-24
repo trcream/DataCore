@@ -25,7 +25,7 @@ module.exports = {
     extend: {
       fontFamily: {
         // Add your custom fonts
-        dmSans: ['DM Sans', 'sans-serif'],
+        dmSans: ['var(--font-DMSans)'],
         clashDisplay: ['Clash Display', 'sans-serif'],
         raleway: ['Raleway', 'sans-serif'],
         spaceGrotesk: ['Space Grotesk', 'sans-serif'],

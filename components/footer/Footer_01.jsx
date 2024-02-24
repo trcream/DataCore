@@ -195,8 +195,8 @@ const Footer_01 = () => {
                 >
                   <Image
                     src='/assets/img/th-1/arrow-right-large.svg'
-                    height={100}
-                    width={100}
+                    height={24}
+                    width={24}
                     alt='newsletter'
                   />
                 </button>

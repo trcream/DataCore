@@ -36,8 +36,10 @@ const Footer_02 = () => {
                   >
                     <span className='hidden sm:inline-block'>Get Started</span>
                     <Image
-                      src='assets/img/th-1/arrow-right-large.svg'
+                      src='/assets/img/th-1/arrow-right-large.svg'
                       alt='newsletter'
+                      width={24}
+                      height={24}
                     />
                   </button>
                 </div>
@@ -64,7 +66,7 @@ const Footer_02 = () => {
                   <ul className='flex flex-col gap-y-[10px] capitalize'>
                     <li>
                       <Link
-                        to='/'
+                        href='/'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         Home
@@ -72,7 +74,7 @@ const Footer_02 = () => {
                     </li>
                     <li>
                       <Link
-                        to='/about'
+                        href='/about'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         About Us
@@ -80,7 +82,7 @@ const Footer_02 = () => {
                     </li>
                     <li>
                       <Link
-                        to='/services'
+                        href='/services'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         Services
@@ -88,7 +90,7 @@ const Footer_02 = () => {
                     </li>
                     <li>
                       <Link
-                        to='/pricing'
+                        href='/pricing'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         pricing
@@ -96,7 +98,7 @@ const Footer_02 = () => {
                     </li>
                     <li>
                       <Link
-                        to='/contact'
+                        href='/contact'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         Contact
@@ -116,7 +118,7 @@ const Footer_02 = () => {
                   <ul className='flex flex-col gap-y-[10px] capitalize'>
                     <li>
                       <Link
-                        to='/signup'
+                        href='/signup'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         Signup
@@ -124,7 +126,7 @@ const Footer_02 = () => {
                     </li>
                     <li>
                       <Link
-                        to='/login'
+                        href='/login'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         Login
@@ -132,7 +134,7 @@ const Footer_02 = () => {
                     </li>
                     <li>
                       <Link
-                        to='/error-404'
+                        href='/error-404'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         404 Not found
@@ -140,7 +142,7 @@ const Footer_02 = () => {
                     </li>
                     <li>
                       <Link
-                        to='/reset-password'
+                        href='/reset-password'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         Password Reset
@@ -160,7 +162,7 @@ const Footer_02 = () => {
                   <ul className='flex flex-col gap-y-[10px] capitalize'>
                     <li>
                       <Link
-                        to='/signup'
+                        href='/signup'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         Signup
@@ -168,7 +170,7 @@ const Footer_02 = () => {
                     </li>
                     <li>
                       <Link
-                        to='/login'
+                        href='/login'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         Login
@@ -176,7 +178,7 @@ const Footer_02 = () => {
                     </li>
                     <li>
                       <Link
-                        to='/error-404'
+                        href='/error-404'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         404 Not found
@@ -184,7 +186,7 @@ const Footer_02 = () => {
                     </li>
                     <li>
                       <Link
-                        to='/reset-password'
+                        href='/reset-password'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         Password Reset
@@ -205,12 +207,12 @@ const Footer_02 = () => {
                     <li>
                       <Link
                         rel='noopener noreferrer'
-                        to='http://www.facebook.com'
+                        href='http://www.facebook.com'
                         className='group flex items-center gap-x-3'
                       >
                         <div className='flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-white bg-opacity-10 transition-all duration-300 group-hover:bg-colorViolet'>
                           <Image
-                            src='assets/img/th-1/facebook-icon-white.svg'
+                            src='/assets/img/th-1/facebook-icon-white.svg'
                             alt='facebook-icon-white'
                             width={14}
                             height={14}
@@ -222,12 +224,12 @@ const Footer_02 = () => {
                     <li>
                       <Link
                         rel='noopener noreferrer'
-                        to='http://www.twitter.com'
+                        href='http://www.twitter.com'
                         className='group flex items-center gap-x-3'
                       >
                         <div className='flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-white bg-opacity-10 transition-all duration-300 group-hover:bg-colorViolet'>
                           <Image
-                            src='assets/img/th-1/twitter-icon-white.svg'
+                            src='/assets/img/th-1/twitter-icon-white.svg'
                             alt='twitter-icon-white'
                             width={14}
                             height={14}
@@ -239,12 +241,12 @@ const Footer_02 = () => {
                     <li>
                       <Link
                         rel='noopener noreferrer'
-                        to='http://www.instagram.com'
+                        href='http://www.instagram.com'
                         className='group flex items-center gap-x-3'
                       >
                         <div className='flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-white bg-opacity-10 transition-all duration-300 group-hover:bg-colorViolet'>
                           <Image
-                            src='assets/img/th-1/instagram-icon-white.svg'
+                            src='/assets/img/th-1/instagram-icon-white.svg'
                             alt='instagram-icon-white'
                             width={14}
                             height={14}
@@ -256,12 +258,12 @@ const Footer_02 = () => {
                     <li>
                       <Link
                         rel='noopener noreferrer'
-                        to='http://www.linkedin.com'
+                        href='http://www.linkedin.com'
                         className='group flex items-center gap-x-3'
                       >
                         <div className='flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-white bg-opacity-10 transition-all duration-300 group-hover:bg-colorViolet'>
                           <Image
-                            src='assets/img/th-1/linkedin-icon-white.svg'
+                            src='/assets/img/th-1/linkedin-icon-white.svg'
                             alt='linkedin-icon-white'
                             width={14}
                             height={14}
@@ -288,9 +290,9 @@ const Footer_02 = () => {
           <div>
             <div className='global-container'>
               <div className='flex flex-wrap items-center justify-center gap-5 text-center md:justify-between md:text-left'>
-                <Link to='/'>
+                <Link href='/'>
                   <Image
-                    src='assets/img/logo-light.png'
+                    src='/assets/img/logo-light.png'
                     alt='logo-light'
                     width={111}
                     height={23}
