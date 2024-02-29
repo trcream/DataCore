@@ -200,7 +200,7 @@ function TeamDetails() {
                     1. AI Strategy:
                   </div>
                   <p>
-                    The CAIO plays a pivotal role in shaping the organization's
+                    The CAIO plays a pivotal role in shaping the organizations
                     AI strategy. They work closely with senior leadership.
                   </p>
                 </li>
@@ -243,7 +243,7 @@ function TeamDetails() {
                   </div>
                   <p>
                     Data is a critical component of AI, and the CAIO often
-                    manages the organization's data strategy.
+                    manages the organizations data strategy.
                   </p>
                 </li>
                 {/* Team Member Skill Item */}

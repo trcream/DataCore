@@ -154,7 +154,7 @@ function PortfolioDetails() {
                       management and supply chain operations.
                     </li>
                     <li className='relative pl-[30px] after:absolute after:left-[10px] after:top-3 after:h-[6px] after:w-[6px] after:rounded-[50%] after:bg-black'>
-                      Customer Churn Prediction: It's used to identify customers
+                      Customer Churn Prediction: It s used to identify customers
                       at risk of leaving a service or product, allowing
                       proactive retention efforts.
                     </li>
