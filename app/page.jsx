@@ -1,10 +1,10 @@
 'use client';
-import { Autoplay } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import useAccordion from '../components/hooks/useAccordion';
-import useTabs from '../components/hooks/useTabs';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import useAccordion from '@/components/hooks/useAccordion';
+import useTabs from '@/components/hooks/useTabs';
 import Header_01 from '@/components/header/Header_01';
 import Footer_01 from '@/components/footer/Footer_01';
 

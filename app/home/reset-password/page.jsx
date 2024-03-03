@@ -1,5 +1,3 @@
-import React from 'react';
-
 function ResetPassword() {
   return (
     <main className='main-wrapper relative overflow-hidden'>

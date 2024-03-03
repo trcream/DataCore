@@ -1,15 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import logo from '@/public/assets/img/logo-dark.png';
 
 const LogoDark = () => {
   return (
     <Link href='/'>
-      <Image
-        src='/assets/img/logo-dark.png'
-        alt='AIMass'
-        width='96'
-        height='24'
-      />
+      <Image src={logo} alt='AIMass' width='96' height='24' />
     </Link>
   );
 };

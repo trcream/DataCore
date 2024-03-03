@@ -1,10 +1,10 @@
 'use client';
-import useAccordion from '@/components/hooks/useAccordion';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
 import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import useAccordion from '@/components/hooks/useAccordion';
 
 function Home_2() {
   const [activeIndex, handleAccordion] = useAccordion(0);

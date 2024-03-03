@@ -1,13 +1,13 @@
 'use client';
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import '@/styles/globals.css';
-import '@/styles/vendors/menu.css';
 import localFont from 'next/font/local';
 import { Inter } from 'next/font/google';
+import JOS from 'jos-animation';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import JOS from 'jos-animation';
+import '@/styles/globals.css';
+import '@/styles/vendors/menu.css';
 
 const DMSans = localFont({
   src: '../fonts/DMSans-Bold.woff2',

@@ -1,6 +1,5 @@
 import Header_01 from '@/components/header/Header_01';
 import Footer_01 from '@/components/footer/Footer_01';
-import React from 'react';
 
 function Wrapper01({ children }) {
   return (

@@ -74,7 +74,7 @@ const Footer_02 = () => {
                     </li>
                     <li>
                       <Link
-                        href='/about'
+                        href='/home/about'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         About Us
@@ -82,7 +82,7 @@ const Footer_02 = () => {
                     </li>
                     <li>
                       <Link
-                        href='/services'
+                        href='/home/services'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         Services
@@ -90,7 +90,7 @@ const Footer_02 = () => {
                     </li>
                     <li>
                       <Link
-                        href='/pricing'
+                        href='/home/pricing'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         pricing
@@ -98,7 +98,7 @@ const Footer_02 = () => {
                     </li>
                     <li>
                       <Link
-                        href='/contact'
+                        href='/home/contact'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         Contact
@@ -118,7 +118,7 @@ const Footer_02 = () => {
                   <ul className='flex flex-col gap-y-[10px] capitalize'>
                     <li>
                       <Link
-                        href='/signup'
+                        href='/home/signup'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         Signup
@@ -126,7 +126,7 @@ const Footer_02 = () => {
                     </li>
                     <li>
                       <Link
-                        href='/login'
+                        href='/home/login'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         Login
@@ -134,7 +134,7 @@ const Footer_02 = () => {
                     </li>
                     <li>
                       <Link
-                        href='/error-404'
+                        href='/home/not-found'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         404 Not found
@@ -142,7 +142,7 @@ const Footer_02 = () => {
                     </li>
                     <li>
                       <Link
-                        href='/reset-password'
+                        href='/home/reset-password'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         Password Reset
@@ -162,7 +162,7 @@ const Footer_02 = () => {
                   <ul className='flex flex-col gap-y-[10px] capitalize'>
                     <li>
                       <Link
-                        href='/signup'
+                        href='/home/signup'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         Signup
@@ -170,7 +170,7 @@ const Footer_02 = () => {
                     </li>
                     <li>
                       <Link
-                        href='/login'
+                        href='/home/login'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         Login
@@ -178,7 +178,7 @@ const Footer_02 = () => {
                     </li>
                     <li>
                       <Link
-                        href='/error-404'
+                        href='/home/not-found'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         404 Not found
@@ -186,7 +186,7 @@ const Footer_02 = () => {
                     </li>
                     <li>
                       <Link
-                        href='/reset-password'
+                        href='/home/reset-password'
                         className='transition-all duration-300 ease-linear hover:text-colorOrangyRed'
                       >
                         Password Reset

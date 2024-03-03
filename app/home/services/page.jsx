@@ -1,10 +1,9 @@
 'use client';
-import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import useAccordion from '@/components/hooks/useAccordion';
 
-function Service() {
+function Services() {
   const [activeIndex, handleAccordion] = useAccordion(0);
 
   return (
@@ -850,4 +849,4 @@ function Service() {
   );
 }
 
-export default Service;
+export default Services;

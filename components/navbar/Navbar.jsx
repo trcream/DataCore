@@ -1,7 +1,7 @@
 'use client';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
 
 // eslint-disable-next-line react/prop-types
 const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
@@ -134,7 +134,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
               id='submenu-2'
             >
               <li className='sub-menu--item'>
-                <Link href='/home/service'>Services</Link>
+                <Link href='/home/services'>Services</Link>
               </li>
               <li className='sub-menu--item'>
                 <Link href='/home/service-details'>Service Details</Link>
