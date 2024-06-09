@@ -23,7 +23,7 @@ function ServiceDetails() {
                   <Link href='/'>Home</Link>
                 </li>
                 <li>
-                  <Link href='/home/service'>Services</Link>
+                  <Link href='/service'>Services</Link>
                 </li>
                 <li>Service Details</li>
               </ul>

@@ -111,7 +111,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
             </ul>
           </li>
           <li className='nav-item'>
-            <Link href='/home/about' className='nav-link-item'>
+            <Link href='/about' className='nav-link-item'>
               About
             </Link>
           </li>
@@ -134,10 +134,10 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
               id='submenu-2'
             >
               <li className='sub-menu--item'>
-                <Link href='/home/services'>Services</Link>
+                <Link href='/services'>Services</Link>
               </li>
               <li className='sub-menu--item'>
-                <Link href='/home/service-details'>Service Details</Link>
+                <Link href='/service-details'>Service Details</Link>
               </li>
             </ul>
           </li>
@@ -180,10 +180,10 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   id='submenu-4'
                 >
                   <li className='sub-menu--item'>
-                    <Link href='/home/blog'>blogs</Link>
+                    <Link href='/blog'>blogs</Link>
                   </li>
                   <li className='sub-menu--item'>
-                    <Link href='/home/blog-details'>blog details</Link>
+                    <Link href='/blog-details'>blog details</Link>
                   </li>
                 </ul>
               </li>
@@ -208,10 +208,10 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   id='submenu-5'
                 >
                   <li className='sub-menu--item'>
-                    <Link href='/home/team'>Teams</Link>
+                    <Link href='/team'>Teams</Link>
                   </li>
                   <li className='sub-menu--item'>
-                    <Link href='/home/team-details'>Teams Details</Link>
+                    <Link href='/team-details'>Teams Details</Link>
                   </li>
                 </ul>
               </li>
@@ -236,10 +236,10 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   id='submenu-6'
                 >
                   <li className='sub-menu--item'>
-                    <Link href='/home/faq-1'>FAQ-1</Link>
+                    <Link href='/faq-1'>FAQ-1</Link>
                   </li>
                   <li className='sub-menu--item'>
-                    <Link href='/home/faq-2'>FAQ-2</Link>
+                    <Link href='/faq-2'>FAQ-2</Link>
                   </li>
                 </ul>
               </li>
@@ -264,10 +264,10 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   id='submenu-7'
                 >
                   <li className='sub-menu--item'>
-                    <Link href='/home/portfolio'>Portfolio</Link>
+                    <Link href='/portfolio'>Portfolio</Link>
                   </li>
                   <li className='sub-menu--item'>
-                    <Link href='/home/portfolio-details'>
+                    <Link href='/portfolio-details'>
                       Portfolio Details
                     </Link>
                   </li>
@@ -275,7 +275,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
               </li>
               <li className='sub-menu--item'>
                 <Link
-                  href='/home/pricing'
+                  href='/pricing'
                   data-menu-get='h3'
                   className='drop-trigger'
                 >
@@ -303,23 +303,23 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   id='submenu-8'
                 >
                   <li className='sub-menu--item'>
-                    <Link href='/home/not-found'>404 Not Found</Link>
+                    <Link href='/not-found'>404 Not Found</Link>
                   </li>
                   <li className='sub-menu--item'>
-                    <Link href='/home/login'>Login</Link>
+                    <Link href='/login'>Login</Link>
                   </li>
                   <li className='sub-menu--item'>
-                    <Link href='/home/signup'>Signup</Link>
+                    <Link href='/signup'>Signup</Link>
                   </li>
                   <li className='sub-menu--item'>
-                    <Link href='/home/reset-password'>Reset Password</Link>
+                    <Link href='/reset-password'>Reset Password</Link>
                   </li>
                 </ul>
               </li>
             </ul>
           </li>
           <li className='nav-item'>
-            <Link href='/home/contact' className='nav-link-item'>
+            <Link href='/contact' className='nav-link-item'>
               Contact
             </Link>
           </li>
