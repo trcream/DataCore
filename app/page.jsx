@@ -1,17 +1,33 @@
 'use client';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Autoplay } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import useAccordion from '@/components/hooks/useAccordion';
+// import Image from 'next/image';
+// import Link from 'next/link';
+// import { Autoplay } from 'swiper/modules';
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import useAccordion from '@/components/hooks/useAccordion';
 import useTabs from '@/components/hooks/useTabs';
 import Header_01 from '@/components/header/Header_01';
 import Footer_01 from '@/components/footer/Footer_01';
+// Use Layout 4 instead
+import Header_04 from '@/components/header/Header_04';
+import Footer_04 from '@/components/footer/Footer_04';
+
+// Import for HomePage 4 
+// 'use client';
+import { useState } from 'react';
+import FsLightbox from 'fslightbox-react';
+import useAccordion from '@/components/hooks/useAccordion';
+import Image from 'next/image';
+import Link from 'next/link';
+
 
 function Home() {
-  const [activeIndex, handleAccordion] = useAccordion(0);
 
-  const [activeTab, handleTab] = useTabs();
+  const [toggler, setToggler] = useState(false);
+  const [activeIndex, handleAccordion] = useAccordion();
+  const [activeIndexTwo, handleAccordionTwo] = useAccordion();
+
+
+  // const [activeTab, handleTab] = useTabs();
 
   return (
     <div className='page-wrapper relative z-[1] bg-white'>
@@ -20,395 +36,565 @@ function Home() {
       {/*...::: Header End :::... */}
       <main className='main-wrapper relative overflow-hidden'>
         {/*...::: Hero Section Start :::... */}
-        <section id='section-hero'>
-          <div className='relative z-[1] overflow-hidden rounded-bl-[30px] rounded-br-[30px] bg-colorLinenRuffle pb-20 pt-28 lg:rounded-bl-[50px] lg:rounded-br-[50px] lg:pb-24 lg:pt-32 xl:pt-40 xxl:pb-[133px] xxl:pt-[195px]'>
-            <div className='global-container'>
-              <div className='mb-14 flex flex-col items-center text-center lg:mb-20'>
-                <h1 className='jos slide-from-bottom mb-6 max-w-[510px] lg:max-w-[768px] xl:max-w-[1076px]'>
-                  Simplify your SaaS solution with AI
+        <section id='hero-section'>
+          <div className='relative z-[1] overflow-hidden text-center text-white'>
+            {/* Section Spacer */}
+            <div className="bg-[url('/assets/img_placeholder/th-4/hero-bg.jpg')] bg-cover bg-no-repeat pb-20 pt-28 md:pb-[265px] md:pt-40 lg:pt-44 xl:pt-[224px]">
+              {/* Section Container */}
+              <div className='global-container'>
+                <h1 className='jos mb-6 font-spaceGrotesk leading-none -tracking-[3px] text-white'>
+                  Next-gen AI solutions for cybersecurity
                 </h1>
-                <p className='jos slide-from-bottom mb-11 max-w-[700px] text-lg font-semibold sm:text-xl xl:max-w-[980px]'>
-                  Our AI SAAS tool is a cloud-based software delivery model. It
-                  helps businesses forecast demand for products and services and
-                  optimize inventory management and supply chain operations.
-                </p>
-                <div
-                  className='jos flex flex-wrap justify-center gap-6'
-                  data-jos_animation='fade'
+                <div className='mx-auto max-w-[1090px]'>
+                  <p className='leading-[1.33] lg:text-xl xl:text-2xl'>
+                    AI solutions for cyber security play a critical role in
+                    staying ahead of increasingly sophisticated cyber threats by
+                    providing faster, more accurate threat detection and
+                    response capabilities.
+                  </p>
+                </div>
+                <form
+                  action='#'
+                  method='post'
+                  className='jos mt-11 text-base font-bold'
                 >
-                  <Link
-                    href='#'
-                    className='button rounded-[50px] border-2 border-black bg-black py-4 text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white'
-                  >
-                    Get started for free
-                  </Link>
-                  <Link
-                    href='#'
-                    className='button rounded-[50px] border-2 border-black bg-transparent py-4 text-black after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white'
-                  >
-                    Learn more
-                  </Link>
+                  <div className='relative mx-auto h-[60px] max-w-[500px] overflow-hidden rounded'>
+                    <input
+                      type='email'
+                      placeholder='Enter your email...'
+                      className='h-full w-full bg-colorCodGray px-6 pr-[150px]'
+                      required=''
+                    />
+                    <button
+                      type='submit'
+                      className='button absolute right-0 top-0 inline-block h-full rounded border-none bg-colorGreen py-0 text-black after:border-none after:bg-white'
+                    >
+                      Get Started
+                    </button>
+                  </div>
+                </form>
+                <div className='jos mt-4 flex items-center justify-center gap-x-[10px] text-center text-base'>
+                  <Image
+                    src='/assets/img_placeholder/th-4/icon-green-badge-check.svg'
+                    alt='icon-green-badge-check.svg'
+                    width={20}
+                    height={20}
+                    className='inline-block'
+                  />
+                  <p>
+                    By signing up you agree to our
+                    <Link
+                      rel='noopener noreferrer'
+                      href='http://www.example.com'
+                      className='underline hover:text-colorGreen'
+                    >
+                      Terms &amp; Conditions.
+                    </Link>
+                  </p>
                 </div>
               </div>
-              <div
-                className='jos hero-img overflow-hidden rounded-2xl bg-black'
-                data-jos_animation='zoom'
-              >
-                <Image
-                  src='/assets/img_placeholder/th-1/hero-dashboard.jpg'
-                  alt='hero-dashboard'
-                  width='1296'
-                  height='640'
-                  className='h-auto w-full'
-                />
-              </div>
-
-              <div className='my-10 h-[1px] w-full bg-[#DBD6CF] lg:my-16 xl:my-20'></div>
-              <div className='jos mx-auto mb-12 max-w-[715px] text-center lg:mb-16'>
-                <p className='text-lg'>
-                  Companies of all sizes trust us to find AI SaaS critical to
-                  their growth and innovation
-                </p>
-              </div>
-              <div className='jos brand-slider' data-jos_animation='fade'>
-                <Swiper
-                  slidesPerView={2}
-                  spaceBetween={105}
-                  autoplay={{
-                    delay: 4000,
-                    disableOnInteraction: false,
-                  }}
-                  modules={[Autoplay]}
-                  breakpoints={{
-                    768: {
-                      slidesPerView: 3,
-                    },
-                    992: {
-                      slidesPerView: 4,
-                    },
-                    1200: {
-                      slidesPerView: 5,
-                    },
-                  }}
-                >
-                  <SwiperSlide>
-                    <Image
-                      src='/assets/img_placeholder/th-1/brand-1.png'
-                      alt='brand-1'
-                      width='180'
-                      height='38'
-                      className='max-w-full'
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <Image
-                      src='/assets/img_placeholder/th-1/brand-2.png'
-                      alt='brand-2'
-                      width='183'
-                      height='35'
-                      className='max-w-full'
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <Image
-                      src='/assets/img_placeholder/th-1/brand-3.png'
-                      alt='brand-3'
-                      width='172'
-                      height='35'
-                      className='max-w-full'
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <Image
-                      src='/assets/img_placeholder/th-1/brand-4.png'
-                      alt='brand-4'
-                      width='175'
-                      height='30'
-                      className='max-w-full'
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <Image
-                      src='/assets/img_placeholder/th-1/brand-5.png'
-                      alt='brand-5'
-                      width='168'
-                      height='36'
-                      className='max-w-full'
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <Image
-                      src='/assets/img_placeholder/th-1/brand-1.png'
-                      alt='brand-1'
-                      width='180'
-                      height='38'
-                      className='max-w-full'
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <Image
-                      src='/assets/img_placeholder/th-1/brand-2.png'
-                      alt='brand-2'
-                      width='183'
-                      height='35'
-                      className='max-w-full'
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <Image
-                      src='/assets/img_placeholder/th-1/brand-3.png'
-                      alt='brand-3'
-                      width='172'
-                      height='35'
-                      className='max-w-full'
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <Image
-                      src='/assets/img_placeholder/th-1/brand-4.png'
-                      alt='brand-4'
-                      width='175'
-                      height='30'
-                      className='max-w-full'
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <Image
-                      src='/assets/img_placeholder/th-1/brand-5.png'
-                      alt='brand-5'
-                      width='168'
-                      height='36'
-                      className='max-w-full'
-                    />
-                  </SwiperSlide>
-                </Swiper>
-              </div>
+              {/* Section Container */}
             </div>
-            <div className='orange-gradient-1 absolute -right-[150px] top-[370px] -z-[1] h-[500px] w-[500px] animate-spin rounded-[500px]'></div>
-
-            <div className='orange-gradient-2 absolute right-[57px] top-[620px] -z-[1] h-[450px] w-[450px] animate-spin rounded-[450px]'></div>
+            {/* Background Gradient */}
+            <div className='absolute left-1/2 top-[80%] -z-[1] h-[1280px] w-[1280px] -translate-x-1/2 rounded-full bg-gradient-to-t from-[#39FF14] to-[#37ff1467] blur-[250px]'></div>
           </div>
+          {/* Section Spacer */}
         </section>
         {/*...::: Hero Section End :::... */}
-
-        {/*...::: Service Section Start :::... */}
-        <section id='section-service'>
+        {/*...::: Promo Section Start :::... */}
+        <div id='promo-section'>
+          <div className='relative z-[1] pt-20 md:-mt-[135px] md:pt-0'>
+            {/* Section Container */}
+            <div className='global-container'>
+              <ul className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
+                <li
+                  className='jos rounded-[10px] bg-[#121212] p-[30px] text-white'
+                  data-jos_delay='0.1'
+                >
+                  <div className='mb-6 flex items-center gap-x-6'>
+                    <div className='h-[50px] w-[50px]'>
+                      <Image
+                        src='/assets/img_placeholder/th-4/icon-green-promo-1.svg'
+                        alt='icon-black-promo'
+                        width={50}
+                        height={50}
+                        className='h-full w-auto'
+                      />
+                    </div>
+                    <div className='flex-1 font-spaceGrotesk text-3xl leading-[1.33]'>
+                      Threat Detection
+                    </div>
+                  </div>
+                  <p className='text-[21px] leading-[1.4]'>
+                    AI can identify patterns &amp; improve the detection of
+                    unknown threats.
+                  </p>
+                </li>
+                <li
+                  className='jos rounded-[10px] bg-[#121212] p-[30px] text-white'
+                  data-jos_delay='0.2'
+                >
+                  <div className='mb-6 flex items-center gap-x-6'>
+                    <div className='h-[50px] w-[50px]'>
+                      <Image
+                        src='/assets/img_placeholder/th-4/icon-green-promo-2.svg'
+                        alt='icon-black-promo'
+                        width={50}
+                        height={50}
+                        className='h-full w-auto'
+                      />
+                    </div>
+                    <div className='flex-1 font-spaceGrotesk text-3xl leading-[1.33]'>
+                      24/7 Monitoring
+                    </div>
+                  </div>
+                  <p className='text-[21px] leading-[1.4]'>
+                    Ensuring continuous protection against threats and working
+                    hours.
+                  </p>
+                </li>
+                <li
+                  className='jos rounded-[10px] bg-[#121212] p-[30px] text-white'
+                  data-jos_delay='0.3'
+                >
+                  <div className='mb-6 flex items-center gap-x-6'>
+                    <div className='h-[50px] w-[50px]'>
+                      <Image
+                        src='/assets/img_placeholder/th-4/icon-green-promo-3.svg'
+                        alt='icon-black-promo'
+                        width={50}
+                        height={50}
+                        className='h-full w-auto'
+                      />
+                    </div>
+                    <div className='flex-1 font-spaceGrotesk text-3xl leading-[1.33]'>
+                      Auto Response
+                    </div>
+                  </div>
+                  <p className='text-[21px] leading-[1.4]'>
+                    Automate routine security tasks and patch management
+                    security.
+                  </p>
+                </li>
+              </ul>
+            </div>
+            {/* Section Container */}
+          </div>
+        </div>
+        {/*...::: Promo Section End :::... */}
+        {/*...::: Content Section-1 Start :::... */}
+        <section id='section-content-1'>
           {/* Section Spacer */}
-          <div className='pb-20 pt-20 xl:pb-[150px] xl:pt-[130px]'>
+          <div className='py-20 xl:py-[130px]'>
+            {/* Section Container */}
+            <div className='global-container'>
+              <div className='grid items-center gap-10 md:grid-cols-[minmax(0,_1fr)_1.3fr] lg:gap-[60px] xl:gap-x-[94px]'>
+                <div className='jos' data-jos_animation='fade-left'>
+                  <div className='overflow-hidden rounded-[10px]'>
+                    <Image
+                      src='/assets/img_placeholder/th-4/content-img-1.jpg'
+                      alt='content-img-2'
+                      width={550}
+                      height={550}
+                      className='h-auto w-full'
+                    />
+                  </div>
+                </div>
+                <div className='jos' data-jos_animation='fade-right'>
+                  {/* Section Content Block */}
+                  <div className='mb-6'>
+                    <h2 className='font-spaceGrotesk text-4xl font-medium leading-[1.06] -tracking-[2px] text-white sm:text-[44px] lg:text-[56px] xl:text-[70px]'>
+                      Securing networks, servers and data
+                    </h2>
+                  </div>
+                  {/* Section Content Block */}
+                  <div>
+                    <p className='mb-8 text-lg leading-[1.42] last:mb-0 lg:text-[21px]'>
+                      Large corporations &amp; businesses across industries use
+                      our AI cybersecurity solutions to safeguard their
+                      networks, servers, &amp; data from cyber threats.
+                    </p>
+                    <p className='mb-8 text-lg leading-[1.42] last:mb-0 lg:text-[21px]'>
+                      Our cyber security platform supercharges your security
+                      with AI-powered security tools. Turn mountains of data
+                      into actionable insights and respond in real-time.
+                    </p>
+                    <Link
+                      rel='noopener noreferrer'
+                      href='https://www.example.com'
+                      className='button inline-block h-full rounded border-none bg-colorGreen py-3 text-base text-black after:border-none after:bg-white'
+                    >
+                      Explore the Platform
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Section Container */}
+          </div>
+          {/* Section Spacer */}
+        </section>
+        {/*...::: Content Section-1 End :::... */}
+        {/*...::: Content Section-2 Start :::... */}
+        <section id='section-content-2'>
+          {/* Section Spacer */}
+          <div className='py-20 xl:py-[130px]'>
+            {/* Section Container */}
+            <div className='global-container'>
+              <div className='grid items-center gap-10 md:grid-cols-[1.1fr_minmax(0,_1fr)] lg:gap-[60px] xl:gap-x-[110px]'>
+                <div className='jos order-2' data-jos_animation='fade-left'>
+                  <div className='overflow-hidden rounded-[10px]'>
+                    <Image
+                      src='/assets/img_placeholder/th-4/content-img-2.jpg'
+                      alt='content-img-2'
+                      width={550}
+                      height={550}
+                      className='h-auto w-full'
+                    />
+                  </div>
+                </div>
+                <div className='jos order-1' data-jos_animation='fade-right'>
+                  {/* Section Content Block */}
+                  <div className='mb-6'>
+                    <h2 className='font-spaceGrotesk text-4xl font-medium leading-[1.06] -tracking-[2px] text-white sm:text-[44px] lg:text-[56px] xl:text-[70px]'>
+                      Industries protect their digital assets
+                    </h2>
+                  </div>
+                  {/* Section Content Block */}
+                  <div className=''>
+                    <p className='mb-8 text-lg leading-[1.42] last:mb-0 lg:text-[21px]'>
+                      Cybersecurity solutions are used by a wide range of all
+                      types of organizations across various industries use to
+                      protect their digital assets, networks, and sensitive
+                      data.
+                    </p>
+                    <ul className='flex flex-col gap-y-5 font-spaceGrotesk text-xl leading-tight tracking-tighter lg:mt-12 lg:text-[28px]'>
+                      <li className='flex items-start gap-x-3'>
+                        <div className='mt-[2.5px] h-[30px] w-[30px]'>
+                          <Image
+                            src='/assets/img_placeholder/th-4/icon-green-badge-check.svg'
+                            alt='check-circle'
+                            width={30}
+                            height={30}
+                            className='h-full w-full'
+                          />
+                        </div>
+                        AI cybersecurity to secure cloud platforms
+                      </li>
+                      <li className='flex items-start gap-x-3'>
+                        <div className='mt-[2.5px] h-[30px] w-[30px]'>
+                          <Image
+                            src='/assets/img_placeholder/th-4/icon-green-badge-check.svg'
+                            alt='check-circle'
+                            width={30}
+                            height={30}
+                            className='h-full w-full'
+                          />
+                        </div>
+                        Safeguard customer payment information
+                      </li>
+                      <li className='flex items-start gap-x-3'>
+                        <div className='mt-[2.5px] h-[30px] w-[30px]'>
+                          <Image
+                            src='/assets/img_placeholder/th-4/icon-green-badge-check.svg'
+                            alt='check-circle'
+                            width={30}
+                            height={30}
+                            className='h-full w-full'
+                          />
+                        </div>
+                        Secure digital assets and donor information
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Section Container */}
+          </div>
+          {/* Section Spacer */}
+        </section>
+        {/*...::: Content Section-2 End :::... */}
+        {/* Separator */}
+        <div className='global-container overflow-hidden'>
+          <div className='h-[1px] w-full bg-[#363636]' />
+        </div>
+        {/* Separator */}
+        {/*...::: Service Section Start :::... */}
+        <section id='service-section'>
+          {/* Section Spacer */}
+          <div className='pb-20 pt-20 xl:pb-[130px] xl:pt-[150px]'>
             {/* Section Container */}
             <div className='global-container'>
               {/* Section Content Block */}
-              <div className='jos mb-10 lg:mb-16 xl:mb-20'>
-                <div className='md:max-w-sm lg:max-w-xl xl:max-w-[746px]'>
-                  <h2>Core features that make it valuable</h2>
-                </div>
+              <div className='jos mx-auto mb-10 text-center md:mb-16 md:max-w-xl lg:mb-20 lg:max-w-3xl xl:max-w-[856px]'>
+                <h2 className='font-spaceGrotesk text-4xl font-medium leading-[1.06] -tracking-[2px] text-white sm:text-[44px] lg:text-[56px] xl:text-[70px]'>
+                  Get all the tools to tackle cybersecurity together
+                </h2>
               </div>
               {/* Section Content Block */}
               {/* Service List */}
-              <ul className='jos grid grid-cols-1 gap-[2px] overflow-hidden rounded-[10px] border-2 border-black bg-black sm:grid-cols-2 lg:grid-cols-4'>
+              <ul className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
                 {/* Service Item */}
-                <li className='group bg-white p-[30px] transition-all duration-300 ease-in-out hover:bg-black'>
-                  <div className='relative mb-9 h-[70px] w-[70px]'>
-                    <Image
-                      src='/assets/img_placeholder/th-1/service-icon-black-1.svg'
-                      alt=''
-                      width='70'
-                      height='70'
-                    />
-                    <Image
-                      src='/assets/img_placeholder/th-1/service-icon-orange-1.svg'
-                      alt='service-icon-orange-1'
-                      width='70'
-                      height='70'
-                      className='absolute left-0 top-0 h-full w-full opacity-0 transition-all duration-300 ease-linear group-hover:opacity-100'
-                    />
+                <li
+                  className='jos group rounded-[10px] bg-[#121212] p-[30px]'
+                  data-jos_delay='0.1'
+                >
+                  <div className='mb-8 flex items-center gap-x-6'>
+                    <div className='h-[50px] w-[50px]'>
+                      <Image
+                        src='/assets/img_placeholder/th-4/icon-green-service-1.svg'
+                        alt='icon-green-service'
+                        width={50}
+                        height={50}
+                        className='h-full w-auto'
+                      />
+                    </div>
+                    <div className='flex-1 font-spaceGrotesk text-3xl leading-[1.33]'>
+                      Threat Detection
+                    </div>
                   </div>
-                  <h3 className='mb-4 block text-xl leading-tight -tracking-[0.5px] group-hover:text-white xl:text-2xl xxl:text-[28px]'>
-                    <Link
-                      href='/service-details'
-                      className='hover:text-colorOrangyRed'
-                    >
-                      Resource Flexibility
-                    </Link>
-                  </h3>
-
-                  <p className='mb-12 duration-300 group-hover:text-white'>
-                    This is an excellent option for people & small businesses
-                    who are starting out.
+                  <p className='mb-7 text-[21px] leading-[1.4]'>
+                    AI can identify patterns &amp; improve the detection of
+                    unknown threats.
                   </p>
-
                   <Link
                     href='/service-details'
-                    className='relative inline-block h-[30px] w-[30px] duration-300'
+                    className='relative flex h-[30px] w-[30px] items-center justify-center overflow-hidden'
                   >
                     <Image
-                      src='/assets/img_placeholder/th-1/arrow-right-black.svg'
-                      alt='arrow-right-black'
-                      width='30'
-                      height='30'
+                      src='/assets/img_placeholder/th-4/icon-white-arrow-right.svg'
+                      alt='icon-white-arrow-right'
+                      width={30}
+                      height={30}
+                      className='relative left-0 transition-all duration-300 group-hover:left-full'
                     />
                     <Image
-                      src='/assets/img_placeholder/th-1/arrow-right-orange.svg'
-                      alt='arrow-right-black'
-                      width='30'
-                      height='30'
-                      className='absolute left-0 top-0 h-full w-full opacity-0 transition-all duration-300 ease-linear group-hover:opacity-100'
+                      src='/assets/img_placeholder/th-4/icon-green-arrow-right.svg'
+                      alt='icon-white-arrow-right'
+                      width={30}
+                      height={30}
+                      className='absolute -left-full transition-all duration-300 group-hover:left-0'
                     />
                   </Link>
                 </li>
                 {/* Service Item */}
                 {/* Service Item */}
-                <li className='group bg-white p-[30px] transition-all duration-300 ease-in-out hover:bg-black'>
-                  <div className='relative mb-9 h-[70px] w-[70px]'>
-                    <Image
-                      src='/assets/img_placeholder/th-1/service-icon-black-2.svg'
-                      alt='service-icon-black-2'
-                      width='70'
-                      height='70'
-                    />
-                    <Image
-                      src='/assets/img_placeholder/th-1/service-icon-orange-2.svg'
-                      alt='service-icon-orange-1'
-                      width='70'
-                      height='70'
-                      className='absolute left-0 top-0 h-full w-full opacity-0 transition-all duration-300 ease-linear group-hover:opacity-100'
-                    />
+                <li
+                  className='jos group rounded-[10px] bg-[#121212] p-[30px]'
+                  data-jos_delay='0.2'
+                >
+                  <div className='mb-8 flex items-center gap-x-6'>
+                    <div className='h-[50px] w-[50px]'>
+                      <Image
+                        src='/assets/img_placeholder/th-4/icon-green-service-2.svg'
+                        alt='icon-green-service'
+                        width={50}
+                        height={50}
+                        className='h-full w-auto'
+                      />
+                    </div>
+                    <div className='flex-1 font-spaceGrotesk text-3xl leading-[1.33]'>
+                      Phishing Detection
+                    </div>
                   </div>
-
-                  <h3 className='mb-4 block text-xl leading-tight -tracking-[0.5px] group-hover:text-white xl:text-2xl xxl:text-[28px]'>
-                    <Link
-                      href='/service-details'
-                      className='hover:text-colorOrangyRed'
-                    >
-                      Managed Services
-                    </Link>
-                  </h3>
-
-                  <p className='mb-12 duration-300 group-hover:text-white'>
-                    This is an excellent option for people & small businesses
-                    who are starting out.
+                  <p className='mb-7 text-[21px] leading-[1.4]'>
+                    AI examines email content &amp; sender behavior to identify
+                    phishing links.
                   </p>
-
                   <Link
                     href='/service-details'
-                    className='relative inline-block h-[30px] w-[30px] duration-300'
+                    className='relative flex h-[30px] w-[30px] items-center justify-center overflow-hidden'
                   >
                     <Image
-                      src='/assets/img_placeholder/th-1/arrow-right-black.svg'
-                      alt='arrow-right-black'
-                      width='30'
-                      height='30'
+                      src='/assets/img_placeholder/th-4/icon-white-arrow-right.svg'
+                      alt='icon-white-arrow-right'
+                      width={30}
+                      height={30}
+                      className='relative left-0 transition-all duration-300 group-hover:left-full'
                     />
                     <Image
-                      src='/assets/img_placeholder/th-1/arrow-right-orange.svg'
-                      alt='arrow-right-black'
-                      width='30'
-                      height='30'
-                      className='absolute left-0 top-0 h-full w-full opacity-0 transition-all duration-300 ease-linear group-hover:opacity-100'
-                    />
-                  </Link>
-                  {/* Features Item */}
-                  {/* Features Item */}
-                </li>
-                {/* Service Item */}
-                {/* Service Item */}
-                <li className='group bg-white p-[30px] transition-all duration-300 ease-in-out hover:bg-black'>
-                  <div className='relative mb-9 h-[70px] w-[70px]'>
-                    <Image
-                      src='/assets/img_placeholder/th-1/service-icon-black-3.svg'
-                      alt='service-icon-black-3'
-                      width='70'
-                      height='70'
-                    />
-                    <Image
-                      src='/assets/img_placeholder/th-1/service-icon-orange-3.svg'
-                      alt='service-icon-orange-3'
-                      width='70'
-                      height='70'
-                      className='absolute left-0 top-0 h-full w-full opacity-0 transition-all duration-300 ease-linear group-hover:opacity-100'
-                    />
-                  </div>
-                  <h3 className='mb-4 block text-xl leading-tight -tracking-[0.5px] group-hover:text-white xl:text-2xl xxl:text-[28px]'>
-                    <Link
-                      href='/service-details'
-                      className='hover:text-colorOrangyRed'
-                    >
-                      Web-Based Access
-                    </Link>
-                  </h3>
-
-                  <p className='mb-12 duration-300 group-hover:text-white'>
-                    This is an excellent option for people & small businesses
-                    who are starting out.
-                  </p>
-
-                  <Link
-                    href='/service-details'
-                    className='relative inline-block h-[30px] w-[30px] duration-300'
-                  >
-                    <Image
-                      src='/assets/img_placeholder/th-1/arrow-right-black.svg'
-                      alt='arrow-right-black'
-                      width='30'
-                      height='30'
-                    />
-                    <Image
-                      src='/assets/img_placeholder/th-1/arrow-right-orange.svg'
-                      alt='arrow-right-black'
-                      width='30'
-                      height='30'
-                      className='absolute left-0 top-0 h-full w-full opacity-0 transition-all duration-300 ease-linear group-hover:opacity-100'
+                      src='/assets/img_placeholder/th-4/icon-green-arrow-right.svg'
+                      alt='icon-white-arrow-right'
+                      width={30}
+                      height={30}
+                      className='absolute -left-full transition-all duration-300 group-hover:left-0'
                     />
                   </Link>
                 </li>
                 {/* Service Item */}
                 {/* Service Item */}
-                <li className='group bg-white p-[30px] transition-all duration-300 ease-in-out hover:bg-black'>
-                  <div className='relative mb-9 h-[70px] w-[70px]'>
-                    <Image
-                      src='/assets/img_placeholder/th-1/service-icon-black-4.svg'
-                      alt='service-icon-black-4'
-                      width='70'
-                      height='70'
-                    />
-                    <Image
-                      src='/assets/img_placeholder/th-1/service-icon-orange-4.svg'
-                      alt='service-icon-orange-4'
-                      width='70'
-                      height='70'
-                      className='absolute left-0 top-0 h-full w-full opacity-0 transition-all duration-300 ease-linear group-hover:opacity-100'
-                    />
+                <li
+                  className='jos group rounded-[10px] bg-[#121212] p-[30px]'
+                  data-jos_delay='0.3'
+                >
+                  <div className='mb-8 flex items-center gap-x-6'>
+                    <div className='h-[50px] w-[50px]'>
+                      <Image
+                        src='/assets/img_placeholder/th-4/icon-green-service-3.svg'
+                        alt='icon-green-service'
+                        width={50}
+                        height={50}
+                        className='h-full w-auto'
+                      />
+                    </div>
+                    <div className='flex-1 font-spaceGrotesk text-3xl leading-[1.33]'>
+                      Network Security
+                    </div>
                   </div>
-                  <h3 className='mb-4 block text-xl leading-tight -tracking-[0.5px] group-hover:text-white xl:text-2xl xxl:text-[28px]'>
-                    <Link
-                      href='/service-details'
-                      className='hover:text-colorOrangyRed'
-                    >
-                      Resource Flexibility
-                    </Link>
-                  </h3>
-
-                  <p className='mb-12 duration-300 group-hover:text-white'>
-                    This is an excellent option for people & small businesses
-                    who are starting out.
+                  <p className='mb-7 text-[21px] leading-[1.4]'>
+                    Network traffic attempts and can take automated actions to
+                    block.
                   </p>
-
                   <Link
                     href='/service-details'
-                    className='relative inline-block h-[30px] w-[30px] duration-300'
+                    className='relative flex h-[30px] w-[30px] items-center justify-center overflow-hidden'
                   >
                     <Image
-                      src='/assets/img_placeholder/th-1/arrow-right-black.svg'
-                      alt='arrow-right-black'
-                      width='30'
-                      height='30'
+                      src='/assets/img_placeholder/th-4/icon-white-arrow-right.svg'
+                      alt='icon-white-arrow-right'
+                      width={30}
+                      height={30}
+                      className='relative left-0 transition-all duration-300 group-hover:left-full'
                     />
                     <Image
-                      src='/assets/img_placeholder/th-1/arrow-right-orange.svg'
-                      alt='arrow-right-black'
-                      width='30'
-                      height='30'
-                      className='absolute left-0 top-0 h-full w-full opacity-0 transition-all duration-300 ease-linear group-hover:opacity-100'
+                      src='/assets/img_placeholder/th-4/icon-green-arrow-right.svg'
+                      alt='icon-white-arrow-right'
+                      width={30}
+                      height={30}
+                      className='absolute -left-full transition-all duration-300 group-hover:left-0'
+                    />
+                  </Link>
+                </li>
+                {/* Service Item */}
+                {/* Service Item */}
+                <li
+                  className='jos group rounded-[10px] bg-[#121212] p-[30px]'
+                  data-jos_delay='0.4'
+                >
+                  <div className='mb-8 flex items-center gap-x-6'>
+                    <div className='h-[50px] w-[50px]'>
+                      <Image
+                        src='/assets/img_placeholder/th-4/icon-green-service-4.svg'
+                        alt='icon-green-service'
+                        width={50}
+                        height={50}
+                        className='h-full w-auto'
+                      />
+                    </div>
+                    <div className='flex-1 font-spaceGrotesk text-3xl leading-[1.33]'>
+                      Encryption Tools
+                    </div>
+                  </div>
+                  <p className='mb-7 text-[21px] leading-[1.4]'>
+                    Encryption software and hardware protect data by converting
+                    it.
+                  </p>
+                  <Link
+                    href='/service-details'
+                    className='relative flex h-[30px] w-[30px] items-center justify-center overflow-hidden'
+                  >
+                    <Image
+                      src='/assets/img_placeholder/th-4/icon-white-arrow-right.svg'
+                      alt='icon-white-arrow-right'
+                      width={30}
+                      height={30}
+                      className='relative left-0 transition-all duration-300 group-hover:left-full'
+                    />
+                    <Image
+                      src='/assets/img_placeholder/th-4/icon-green-arrow-right.svg'
+                      alt='icon-white-arrow-right'
+                      width={30}
+                      height={30}
+                      className='absolute -left-full transition-all duration-300 group-hover:left-0'
+                    />
+                  </Link>
+                </li>
+                {/* Service Item */}
+                {/* Service Item */}
+                <li
+                  className='jos group rounded-[10px] bg-[#121212] p-[30px]'
+                  data-jos_delay='0.5'
+                >
+                  <div className='mb-8 flex items-center gap-x-6'>
+                    <div className='h-[50px] w-[50px]'>
+                      <Image
+                        src='/assets/img_placeholder/th-4/icon-green-service-5.svg'
+                        alt='icon-green-service'
+                        width={50}
+                        height={50}
+                        className='h-full w-auto'
+                      />
+                    </div>
+                    <div className='flex-1 font-spaceGrotesk text-3xl leading-[1.33]'>
+                      Password Managers
+                    </div>
+                  </div>
+                  <p className='mb-7 text-[21px] leading-[1.4]'>
+                    Password managers help users create, store, &amp; unique
+                    passwords.
+                  </p>
+                  <Link
+                    href='/service-details'
+                    className='relative flex h-[30px] w-[30px] items-center justify-center overflow-hidden'
+                  >
+                    <Image
+                      src='/assets/img_placeholder/th-4/icon-white-arrow-right.svg'
+                      alt='icon-white-arrow-right'
+                      width={30}
+                      height={30}
+                      className='relative left-0 transition-all duration-300 group-hover:left-full'
+                    />
+                    <Image
+                      src='/assets/img_placeholder/th-4/icon-green-arrow-right.svg'
+                      alt='icon-white-arrow-right'
+                      width={30}
+                      height={30}
+                      className='absolute -left-full transition-all duration-300 group-hover:left-0'
+                    />
+                  </Link>
+                </li>
+                {/* Service Item */}
+                {/* Service Item */}
+                <li
+                  className='jos group rounded-[10px] bg-[#121212] p-[30px]'
+                  data-jos_delay='0.6'
+                >
+                  <div className='mb-8 flex items-center gap-x-6'>
+                    <div className='h-[50px] w-[50px]'>
+                      <Image
+                        src='/assets/img_placeholder/th-4/icon-green-service-6.svg'
+                        alt='icon-green-service'
+                        width={50}
+                        height={50}
+                        className='h-full w-auto'
+                      />
+                    </div>
+                    <div className='flex-1 font-spaceGrotesk text-3xl leading-[1.33]'>
+                      Secure Email
+                    </div>
+                  </div>
+                  <p className='mb-7 text-[21px] leading-[1.4]'>
+                    These solutions filter and block email-based threats emails,
+                    spam.
+                  </p>
+                  <Link
+                    href='/service-details'
+                    className='relative flex h-[30px] w-[30px] items-center justify-center overflow-hidden'
+                  >
+                    <Image
+                      src='/assets/img_placeholder/th-4/icon-white-arrow-right.svg'
+                      alt='icon-white-arrow-right'
+                      width={30}
+                      height={30}
+                      className='relative left-0 transition-all duration-300 group-hover:left-full'
+                    />
+                    <Image
+                      src='/assets/img_placeholder/th-4/icon-green-arrow-right.svg'
+                      alt='icon-white-arrow-right'
+                      width={30}
+                      height={30}
+                      className='absolute -left-full transition-all duration-300 group-hover:left-0'
                     />
                   </Link>
                 </li>
@@ -421,894 +607,850 @@ function Home() {
           {/* Section Spacer */}
         </section>
         {/*...::: Service Section End :::... */}
-
-        {/*...::: Content Section Start_1 :::... */}
-        <section id='content-section-1'>
-          {/* Section Spacer */}
-          <div className='pb-20 xl:pb-[150px]'>
-            {/* Section Container */}
-            <div className='global-container'>
-              <div className='grid grid-cols-1 items-center gap-12 md:grid-cols-2 lg:gap-20 xl:gap-28 xxl:gap-32'>
-                {/* Content Left Block */}
-                <div
-                  className='jos order-2 overflow-hidden rounded-md md:order-1'
-                  data-jos_animation='fade-left'
-                >
-                  <Image
-                    src='/assets/img_placeholder/th-1/content-image-1.jpg'
-                    alt='content-image-1'
-                    width='526'
-                    height='450'
-                    className='h-auto w-full'
-                  />
-                </div>
-                {/* Content Left Block */}
-                {/* Content Right Block */}
-                <div
-                  className='jos order-1 md:order-2'
-                  data-jos_animation='fade-right'
-                >
-                  {/* Section Content Block */}
-                  <div className='mb-6'>
-                    <h2>Accessible to a wider audience</h2>
-                  </div>
-                  {/* Section Content Block */}
-                  <div className='text-lg leading-[1.4] lg:text-[21px]'>
-                    <p className='mb-7 last:mb-0'>
-                      Advanced AI capabilities accessible to a broader audience,
-                      including small & medium-sized businesses and individuals
-                      who may not have the resources or expertise to develop.
-                    </p>
-                    <p className='mb-7 last:mb-0'>
-                      Advanced AI capabilities accessible to a broader audience,
-                      including small & medium-sized businesses and individuals
-                      who may not have the resources or expertise to develop.
-                    </p>
-                  </div>
-                </div>
-                {/* Content Right Block */}
+        {/*...::: Text Slide Section Start :::... */}
+        <div id='text-slide-section'>
+          <div className='bg-colorGreen py-5'>
+            <div className='horizontal-slide-from-left-to-right grid grid-flow-col whitespace-nowrap'>
+              <div className='flex text-4xl font-bold uppercase leading-5 text-black'>
+                #cybersecurity #hacking #tech #programming #coding
+              </div>
+              <div className='flex text-4xl font-bold uppercase leading-5 text-black'>
+                #cybersecurity #hacking #tech #programming #coding
+              </div>
+              <div className='flex text-4xl font-bold uppercase leading-5 text-black'>
+                #cybersecurity #hacking #tech #programming #coding
               </div>
             </div>
-            {/* Section Container */}
           </div>
+        </div>
+        {/*...::: Text Slide Section End :::... */}
+        {/*...::: Content Section-3 Start :::... */}
+        <section id='content-section-3'>
           {/* Section Spacer */}
-        </section>
-        {/*...::: Content Section End_1 :::... */}
-
-        {/*...::: Content Section Start_2 :::... */}
-        <section id='content-section-2'>
-          {/* Section Spacer */}
-          <div className='pb-20 xl:pb-[150px]'>
+          <div className='py-20 xl:pb-[150px] xl:pt-[130px]'>
             {/* Section Container */}
             <div className='global-container'>
-              <div className='grid grid-cols-1 items-center gap-12 md:grid-cols-2 lg:gap-20 xl:grid-cols-[minmax(0,_1.2fr)_1fr] xl:gap-28 xxl:gap-32'>
-                {/* Content Left Block */}
-                <div
-                  className='jos order-2 overflow-hidden rounded-md'
-                  data-jos_animation='fade-left'
-                >
-                  <Image
-                    src='/assets/img_placeholder/th-1/content-image-2.jpg'
-                    alt='content-image-2'
-                    width='526'
-                    height='450'
-                    className='h-auto w-full'
-                  />
-                </div>
-                {/* Content Left Block */}
-                {/* Content Right Block */}
-                <div className='jos order-1' data-jos_animation='fade-right'>
-                  {/* Section Content Block */}
-                  <div className='mb-6'>
-                    <h2>Providing quick deploy solutions</h2>
-                  </div>
-                  {/* Section Content Block */}
-                  <div className='text-lg leading-[1.4] lg:text-[21px]'>
-                    <p className='mb-7 last:mb-0'>
-                      Our AI SaaS solutions can be quickly deployed, enabling
-                      users to start benefiting from AI capabilities without
-                      lengthy setup and development times in fast-paced
-                      industries.
-                    </p>
-                    <ul className='flex flex-col gap-y-5 font-dmSans text-xl leading-tight tracking-tighter text-black lg:mt-12 lg:text-[28px]'>
-                      <li className='flex items-start gap-x-3'>
-                        <div className='mt-[2.5px] h-[30px] w-[30px]'>
-                          <Image
-                            src='/assets/img_placeholder/th-1/check-circle.svg'
-                            alt='check-circle'
-                            width='30'
-                            height='30'
-                            className='h-full w-full'
-                          />
-                        </div>
-                        Ready-to-use AI capabilities system
-                      </li>
-                      <li className='flex items-start gap-x-3'>
-                        <div className='mt-[2.5px] h-[30px] w-[30px]'>
-                          <Image
-                            src='/assets/img_placeholder/th-1/check-circle.svg'
-                            alt='check-circle'
-                            width='30'
-                            height='30'
-                            className='h-full w-full'
-                          />
-                        </div>
-                        Users can quickly integrate AI features
-                      </li>
-                      <li className='flex items-start gap-x-3'>
-                        <div className='mt-[2.5px] h-[30px] w-[30px]'>
-                          <Image
-                            src='/assets/img_placeholder/th-1/check-circle.svg'
-                            alt='check-circle'
-                            width='30'
-                            height='30'
-                            className='h-full w-full'
-                          />
-                        </div>
-                        Time savings translate to cost savings
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                {/* Content Right Block */}
+              {/* Section Content Block */}
+              <div className='jos mb-10 max-w-[480px] md:mb-16 lg:mb-20 lg:max-w-2xl xl:max-w-[800px]'>
+                <h2 className='font-spaceGrotesk text-4xl font-medium leading-[1.06] -tracking-[2px] text-white sm:text-[44px] lg:text-[56px] xl:text-[70px]'>
+                  Defenses to stay ahead of all evolving all threats
+                </h2>
               </div>
-            </div>
-            {/* Section Container */}
-          </div>
-          {/* Section Spacer */}
-        </section>
-        {/*...::: Content Section End :::... */}
-
-        {/*...::: Funfact Section Start :::... */}
-        <section id='funfact-section'>
-          <div className='mx-auto max-w-[1500px] px-5'>
-            <div className='jos grid grid-cols-1 overflow-hidden rounded-[30px] bg-black lg:rounded-[50px] xl:grid-cols-[minmax(400px,_1fr)_1.5fr] xxl:grid-cols-[1fr_minmax(800px,_1fr)]'>
-              {/* Funfact Left Block */}
-              <div className='relative overflow-hidden rounded-[30px] lg:rounded-[50px]'>
+              {/* Section Content Block */}
+              <div
+                className='jso relative overflow-hidden rounded-[10px]'
+                data-jos_animation='zoom'
+              >
                 <Image
-                  src='/assets/img_placeholder/th-1/funfact-image.jpg'
-                  alt='funfact-image'
-                  width='721'
-                  height='784'
+                  src='/assets/img_placeholder/th-4/video-bg-image.jpg'
+                  alt='video-bg-image'
+                  width={1296}
+                  height={600}
                   className='h-80 w-full object-cover object-center lg:h-[35rem] xl:h-full'
                 />
                 {/* Video Play Button */}
-                <Link
-                  data-fslightbox='gallery'
-                  rel='noopener noreferrer'
-                  href='https://www.youtube.com/watch?v=3nQNiWdeH2Q'
-                  className='absolute left-1/2 top-1/2 z-[1] -translate-x-1/2 -translate-y-1/2'
-                >
-                  <div className='relative flex h-[120px] w-[120px] items-center justify-center rounded-full border-[3px] border-black text-lg font-bold backdrop-blur-[2px] transition-all duration-300 hover:bg-colorOrangyRed hover:text-white'>
+                <button className='absolute left-1/2 top-1/2 z-[1] -translate-x-1/2 -translate-y-1/2'>
+                  <div
+                    className='relative flex h-[120px] w-[120px] items-center justify-center rounded-full border-[3px] border-colorGreen bg-black text-lg font-bold backdrop-blur-[2px] transition-all duration-300'
+                    onClick={() => setToggler(!toggler)}
+                  >
                     Play
-                    <div className='absolute -z-[1] h-[110%] w-[110%] animate-[ping_1.5s_ease-in-out_infinite] rounded-full bg-gray-600 opacity-30'></div>
+                    <div className='absolute -z-[1] h-[110%] w-[110%] animate-[ping_1.5s_ease-in-out_infinite] rounded-full bg-colorGreen opacity-30'></div>
                   </div>
-                </Link>
+                </button>
                 {/* Video Play Button */}
               </div>
-              {/* Funfacct Left Block */}
-
-              {/* Funfact Right Block */}
-              <div className='self-center px-6 py-16 sm:py-20 md:px-16 xl:px-10 xl:py-24 xxl:py-32 xxl:pl-16 xxl:pr-28'>
-                {/* Section Content Block */}
-                <div className='mb-8 lg:mb-16 xl:mb-6'>
-                  <h2 className='text-white'>
-                    AI-powered that streamline tasks
-                  </h2>
-                </div>
-                {/* Section Content Block */}
-                <div className='text-left text-lg leading-[1.4] text-white lg:text-[21px]'>
-                  <p className='mb-7 last:mb-0'>
-                    As your business grows or your AI SaaS needs change, you can
-                    easily adjust your subscription level to match those needs.
-                    This flexibility ensures that AI remains an asset.
-                  </p>
-                </div>
-                {/* Horizontal Separator */}
-                <div className='my-14 h-[1px] w-full bg-colorCodGray'></div>
-                {/* Counter Scroll */}
-                <ul className='flex flex-col justify-center gap-x-11 gap-y-8 text-center sm:flex-row md:text-left xl:justify-normal xl:text-left xxl:gap-x-20'>
-                  {/* Counter Items */}
-                  <li>
-                    <h3
-                      className='text-5xl text-colorOrangyRed md:text-6xl lg:text-7xl xl:text-7xl xxl:text-[120px]'
-                      data-module='countup'
-                    >
-                      <span className='start-number' data-countup-number='92'>
-                        92
-                      </span>
-                      %
-                    </h3>
-                    <span className='block text-lg font-normal text-white lg:text-[21px]'>
-                      Customer service inquiries
-                    </span>
-                  </li>
-                  {/* Counter Items */}
-                  {/* Counter Items */}
-                  <li>
-                    <h3
-                      className='text-5xl text-colorOrangyRed md:text-6xl lg:text-7xl xl:text-7xl xxl:text-[120px]'
-                      data-module='countup'
-                    >
-                      <span className='start-number' data-countup-number='75'>
-                        75
-                      </span>
-                      %
-                    </h3>
-                    <span className='block text-lg font-normal text-white lg:text-[21px]'>
-                      Using financial institutions
-                    </span>
-                  </li>
-                  {/* Counter Items */}
-                </ul>
-                {/* Counter Scroll */}
-              </div>
-              {/* Funfact Right Block */}
-            </div>
-          </div>
-        </section>
-        {/*...::: Funfact Section End :::... */}
-
-        {/*...::: Pricing Section Start :::... */}
-        <section className='pricing-section'>
-          {/* Section Spacer */}
-          <div className='pb-20 pt-20 xl:pb-[150px] xl:pt-[130px]'>
-            {/* Section Container */}
-            <div className='global-container'>
-              {/* Section Content Block */}
-              <div className='jos mb-10 text-center lg:mb-12'>
-                <div className='mx-auto md:max-w-xs lg:max-w-xl xl:max-w-[746px]'>
-                  <h2>Cost-effectively build any software</h2>
-                </div>
-              </div>
-              {/* Section Content Block */}
-              {/* Pricing Block */}
-              <div className='container mx-auto'>
-                {/* Tab buttons */}
-                <div
-                  className='jos flex justify-center'
-                  data-jos_animation='fade'
-                >
-                  <div className='inline-flex space-x-4 rounded-[50px] border-2 border-black font-semibold'>
-                    <button
-                      className={`tab-button price-button ${
-                        activeTab === 0 ? 'active' : ''
-                      }`}
-                      onClick={() => handleTab(0)}
-                      data-tab='monthly'
-                    >
-                      Monthly
-                    </button>
-                    <button
-                      className={`tab-button price-button ${
-                        activeTab === 1 ? 'active' : ''
-                      }`}
-                      onClick={() => handleTab(1)}
-                      data-tab='annually'
-                    >
-                      Annually
-                    </button>
-                  </div>
-                </div>
-
-                {/* Pricing Block */}
-                <div className='mt-12 lg:mt-16 xl:mt-20'>
-                  {/* Price List */}
-                  {activeTab === 0 && (
-                    <ul
-                      id='monthly'
-                      className='tab-content grid grid-cols-1 gap-6 md:grid-cols-2 xxl:grid-cols-3'
-                    >
-                      {/* Price Item */}
-                      <li
-                        className='jos group flex flex-col rounded-[10px] bg-colorLinenRuffle p-10 transition-all duration-300 ease-linear hover:bg-black'
-                        data-jos_animation='flip'
-                        data-jos_delay='0'
-                      >
-                        <h3 className='font-dmSans text-[28px] font-bold leading-[1.28] tracking-tighter text-black transition-all duration-300 ease-linear group-hover:text-white'>
-                          Beginner
-                        </h3>
-                        <span className='text-lg text-black transition-all duration-300 ease-linear group-hover:text-white'>
-                          Up to 10 members
-                        </span>
-
-                        <div className='my-5 h-[1px] w-full bg-[#DBD6CF]'></div>
-                        <h4 className='mb-4 font-dmSans text-5xl font-bold leading-none text-black transition-all duration-300 ease-linear group-hover:text-white md:text-6xl lg:text-7xl xl:text-[80px]'>
-                          $25
-                          <span className='text-lg font-semibold'>
-                            /Per month
-                          </span>
-                        </h4>
-                        <p className='mb-10 text-lg text-black transition-all duration-300 ease-linear group-hover:text-white'>
-                          This is an excellent option for people & small
-                          businesses who are starting out.
-                        </p>
-                        <Link
-                          href='/pricing'
-                          className='button mt-auto block rounded-[50px] border-2 border-black bg-transparent py-4 text-center text-black transition-all duration-300 ease-linear after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black group-hover:border-colorOrangyRed group-hover:text-white'
-                        >
-                          Choose the plan
-                        </Link>
-                      </li>
-                      {/* Price Item */}
-                      {/* Price Item */}
-                      <li
-                        className='jos group flex flex-col rounded-[10px] bg-colorLinenRuffle p-10 transition-all duration-300 ease-linear hover:bg-black'
-                        data-jos_animation='flip'
-                        data-jos_delay='0'
-                      >
-                        <h3 className='font-dmSans text-[28px] font-bold leading-[1.28] tracking-tighter text-black transition-all duration-300 ease-linear group-hover:text-white'>
-                          Starter
-                        </h3>
-                        <span className='text-lg text-black transition-all duration-300 ease-linear group-hover:text-white'>
-                          Up to 50 members
-                        </span>
-
-                        <div className='my-5 h-[1px] w-full bg-[#DBD6CF]'></div>
-                        <h4 className='mb-4 font-dmSans text-5xl font-bold leading-none text-black transition-all duration-300 ease-linear group-hover:text-white md:text-6xl lg:text-7xl xl:text-[80px]'>
-                          $89
-                          <span className='text-lg font-semibold'>
-                            /Per month
-                          </span>
-                        </h4>
-                        <p className='mb-10 text-lg text-black transition-all duration-300 ease-linear group-hover:text-white'>
-                          This plan is suitable for e-commerce stores as well as
-                          professional blogs.
-                        </p>
-                        <Link
-                          href='/pricing'
-                          className='button mt-auto block rounded-[50px] border-2 border-black bg-transparent py-4 text-center text-black transition-all duration-300 ease-linear after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black group-hover:border-colorOrangyRed group-hover:text-white'
-                        >
-                          Choose the plan
-                        </Link>
-                      </li>
-                      {/* Price Item */}
-                      {/* Price Item */}
-                      <li
-                        className='jos group flex flex-col rounded-[10px] bg-colorLinenRuffle p-10 transition-all duration-300 ease-linear hover:bg-black'
-                        data-jos_animation='flip'
-                        data-jos_delay='0'
-                      >
-                        <h3 className='font-dmSans text-[28px] font-bold leading-[1.28] tracking-tighter text-black transition-all duration-300 ease-linear group-hover:text-white'>
-                          Pro
-                        </h3>
-                        <span className='text-lg text-black transition-all duration-300 ease-linear group-hover:text-white'>
-                          Up to 100 members
-                        </span>
-
-                        <div className='my-5 h-[1px] w-full bg-[#DBD6CF]'></div>
-                        <h4 className='mb-4 font-dmSans text-5xl font-bold leading-none text-black transition-all duration-300 ease-linear group-hover:text-white md:text-6xl lg:text-7xl xl:text-[80px]'>
-                          $199
-                          <span className='text-lg font-semibold'>
-                            /Per month
-                          </span>
-                        </h4>
-                        <p className='mb-10 text-lg text-black transition-all duration-300 ease-linear group-hover:text-white'>
-                          Ideal for handling complicated projects
-                          enterprise-level projects, and websites.
-                        </p>
-                        <Link
-                          href='/pricing'
-                          className='button mt-auto block rounded-[50px] border-2 border-black bg-transparent py-4 text-center text-black transition-all duration-300 ease-linear after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black group-hover:border-colorOrangyRed group-hover:text-white'
-                        >
-                          Choose the plan
-                        </Link>
-                      </li>
-                      {/* Price Item */}
-                    </ul>
-                  )}
-                  {/* Price List */}
-                  {/* Price List */}
-                  {activeTab === 1 && (
-                    <ul
-                      id='annually'
-                      className='tab-content grid grid-cols-1 gap-6 md:grid-cols-2 xxl:grid-cols-3'
-                    >
-                      {/* Price Item */}
-                      <li
-                        className='jos group flex flex-col rounded-[10px] bg-colorLinenRuffle p-10 transition-all duration-300 ease-linear hover:bg-black'
-                        data-jos_animation='flip'
-                        data-jos_delay='0'
-                      >
-                        <h3 className='font-dmSans text-[28px] font-bold leading-[1.28] tracking-tighter text-black transition-all duration-300 ease-linear group-hover:text-white'>
-                          Beginner
-                        </h3>
-                        <span className='text-lg text-black transition-all duration-300 ease-linear group-hover:text-white'>
-                          Up to 10 members
-                        </span>
-
-                        <div className='my-5 h-[1px] w-full bg-[#DBD6CF]'></div>
-                        <h4 className='mb-4 font-dmSans text-5xl font-bold leading-none text-black transition-all duration-300 ease-linear group-hover:text-white md:text-6xl lg:text-7xl xl:text-[80px]'>
-                          $240
-                          <span className='text-lg font-semibold'>
-                            /Per year
-                          </span>
-                        </h4>
-                        <p className='mb-10 text-lg text-black transition-all duration-300 ease-linear group-hover:text-white'>
-                          This is an excellent option for people & small
-                          businesses who are starting out.
-                        </p>
-                        <Link
-                          href='/pricing'
-                          className='button mt-auto block rounded-[50px] border-2 border-black bg-transparent py-4 text-center text-black transition-all duration-300 ease-linear after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black group-hover:border-colorOrangyRed group-hover:text-white'
-                        >
-                          Choose the plan
-                        </Link>
-                      </li>
-                      {/* Price Item */}
-                      {/* Price Item */}
-                      <li
-                        className='jos group flex flex-col rounded-[10px] bg-colorLinenRuffle p-10 transition-all duration-300 ease-linear hover:bg-black'
-                        data-jos_animation='flip'
-                        data-jos_delay='0'
-                      >
-                        <h3 className='font-dmSans text-[28px] font-bold leading-[1.28] tracking-tighter text-black transition-all duration-300 ease-linear group-hover:text-white'>
-                          Starter
-                        </h3>
-                        <span className='text-lg text-black transition-all duration-300 ease-linear group-hover:text-white'>
-                          Up to 50 members
-                        </span>
-
-                        <div className='my-5 h-[1px] w-full bg-[#DBD6CF]'></div>
-                        <h4 className='mb-4 font-dmSans text-5xl font-bold leading-none text-black transition-all duration-300 ease-linear group-hover:text-white md:text-6xl lg:text-7xl xl:text-[80px]'>
-                          $960
-                          <span className='text-lg font-semibold'>
-                            /Per year
-                          </span>
-                        </h4>
-                        <p className='mb-10 text-lg text-black transition-all duration-300 ease-linear group-hover:text-white'>
-                          This plan is suitable for e-commerce stores as well as
-                          professional blogs.
-                        </p>
-                        <Link
-                          href='/pricing'
-                          className='button mt-auto block rounded-[50px] border-2 border-black bg-transparent py-4 text-center text-black transition-all duration-300 ease-linear after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black group-hover:border-colorOrangyRed group-hover:text-white'
-                        >
-                          Choose the plan
-                        </Link>
-                      </li>
-                      {/* Price Item */}
-                      {/* Price Item */}
-                      <li
-                        className='jos group flex flex-col rounded-[10px] bg-colorLinenRuffle p-10 transition-all duration-300 ease-linear hover:bg-black'
-                        data-jos_animation='flip'
-                        data-jos_delay='0'
-                      >
-                        <h3 className='font-dmSans text-[28px] font-bold leading-[1.28] tracking-tighter text-black transition-all duration-300 ease-linear group-hover:text-white'>
-                          Pro
-                        </h3>
-                        <span className='text-lg text-black transition-all duration-300 ease-linear group-hover:text-white'>
-                          Up to 100 members
-                        </span>
-
-                        <div className='my-5 h-[1px] w-full bg-[#DBD6CF]'></div>
-                        <h4 className='mb-4 font-dmSans text-5xl font-bold leading-none text-black transition-all duration-300 ease-linear group-hover:text-white md:text-6xl lg:text-7xl xl:text-[80px]'>
-                          $1800
-                          <span className='text-lg font-semibold leading-none'>
-                            /Per year
-                          </span>
-                        </h4>
-                        <p className='mb-10 text-lg text-black transition-all duration-300 ease-linear group-hover:text-white'>
-                          Ideal for handling complicated projects
-                          enterprise-level projects, and websites.
-                        </p>
-                        <Link
-                          href='/pricing'
-                          className='button mt-auto block rounded-[50px] border-2 border-black bg-transparent py-4 text-center text-black transition-all duration-300 ease-linear after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black group-hover:border-colorOrangyRed group-hover:text-white'
-                        >
-                          Choose the plan
-                        </Link>
-                      </li>
-                      {/* Price Item */}
-                    </ul>
-                  )}
-                  {/* Price List */}
-                </div>
-                {/* Pricing Block */}
-              </div>
+              <FsLightbox
+                toggler={toggler}
+                sources={['https://www.youtube.com/watch?v=3nQNiWdeH2Q']}
+              />
             </div>
             {/* Section Container */}
           </div>
           {/* Section Spacer */}
         </section>
-        {/*...::: Pricing Section End :::... */}
 
-        {/*...::: FAQ Section Start :::... */}
-        <section className='faq-section'>
+        {/*...::: Content Section-3 End :::... */}
+        {/*...::: Content Section-4 Start :::... */}
+        <section id='content-section-4'>
           {/* Section Spacer */}
           <div className='pb-20 xl:pb-[150px]'>
             {/* Section Container */}
             <div className='global-container'>
-              <div className='grid grid-cols-1 gap-y-10 md:grid-cols-2'>
-                {/* FAQ Left Block */}
-                <div
-                  className='jos flex flex-col'
-                  data-jos_animation='fade-right'
+              <div className='grid items-center gap-12 lg:grid-cols-[minmax(0,_.75fr)_1fr] lg:gap-20 xl:gap-24'>
+                {/* Process Accordion */}
+                <ul
+                  className='accordion tab-content flex flex-col gap-y-6'
+                  id='process-accordian'
                 >
+                  {/* Accordion items */}
+                  <li
+                    className={`jos accordion-item rounded-[10px] bg-[#121212] px-7 py-[30px] ${
+                      activeIndex == 0 ? 'active' : ''
+                    }`}
+                    data-jos_delay='0.1'
+                  >
+                    <div
+                      onClick={() => handleAccordion(0)}
+                      className='accordion-header flex items-center justify-between text-xl leading-[1.2] -tracking-[1px] lg:text-3xl'
+                    >
+                      <div className='mb-3 flex items-center gap-x-6'>
+                        <Image
+                          src='/assets/img_placeholder/th-4/icon-green-process-accordion-1.svg'
+                          alt='icon-green-process-accordion'
+                          width={36}
+                          height={50}
+                          className='h-[50px] w-auto'
+                        />
+                        <h5 className='font-spaceGrotesk text-white'>
+                          Create a free account
+                        </h5>
+                      </div>
+                      <div className='accordion-icon is-chevron'>
+                        <Image
+                          src='/assets/img_placeholder/th-4/icon-white-cheveron-down.svg'
+                          alt='chevron'
+                          width={30}
+                          height={30}
+                        />
+                        <Image
+                          src='/assets/img_placeholder/th-4/icon-green-cheveron-up.svg'
+                          alt='chevron'
+                          width={30}
+                          height={30}
+                          className='absolute inset-0'
+                        />
+                      </div>
+                    </div>
+                    <div className='accordion-content disappear translate-y-3 text-lg leading-[1.42] lg:text-[21px]'>
+                      <p>
+                        You can easily create a custom AI account. You need to
+                        input some required information.
+                      </p>
+                    </div>
+                  </li>
+                  {/* Accordion items */}
+                  {/* Accordion items */}
+                  <li
+                    className={`jos accordion-item rounded-[10px] bg-[#121212] px-7 py-[30px] ${
+                      activeIndex == 1 ? 'active' : ''
+                    }`}
+                    data-jos_delay='0.1'
+                  >
+                    <div
+                      onClick={() => handleAccordion(1)}
+                      className='accordion-header flex items-center justify-between text-xl leading-[1.2] -tracking-[1px] lg:text-3xl'
+                    >
+                      <div className='mb-3 flex items-center gap-x-6'>
+                        <Image
+                          src='/assets/img_placeholder/th-4/icon-green-process-accordion-2.svg'
+                          alt='icon-green-process-accordion'
+                          width={36}
+                          height={50}
+                          className='h-[50px] w-auto'
+                        />
+                        <h5 className='font-spaceGrotesk text-white'>
+                          Define clear objectives
+                        </h5>
+                      </div>
+                      <div className='accordion-icon is-chevron'>
+                        <Image
+                          src='/assets/img_placeholder/th-4/icon-white-cheveron-down.svg'
+                          alt='chevron'
+                          width={30}
+                          height={30}
+                        />
+                        <Image
+                          src='/assets/img_placeholder/th-4/icon-green-cheveron-up.svg'
+                          alt='chevron'
+                          width={30}
+                          height={30}
+                          className='absolute inset-0'
+                        />
+                      </div>
+                    </div>
+                    <div className='accordion-content disappear translate-y-3 text-lg leading-[1.42] lg:text-[21px]'>
+                      <p>
+                        You can easily create a custom AI account. You need to
+                        input some required information.
+                      </p>
+                    </div>
+                  </li>
+                  {/* Accordion items */}
+                  {/* Accordion items */}
+                  <li
+                    className={`jos accordion-item rounded-[10px] bg-[#121212] px-7 py-[30px] ${
+                      activeIndex == 2 ? 'active' : ''
+                    }`}
+                    data-jos_delay='0.1'
+                  >
+                    <div
+                      onClick={() => handleAccordion(2)}
+                      className='accordion-header flex items-center justify-between text-xl leading-[1.2] -tracking-[1px] lg:text-3xl'
+                    >
+                      <div className='mb-3 flex items-center gap-x-6'>
+                        <Image
+                          src='/assets/img_placeholder/th-4/icon-green-process-accordion-3.svg'
+                          alt='icon-green-process-accordion'
+                          width={36}
+                          height={50}
+                          className='h-[50px] w-auto'
+                        />
+                        <h5 className='font-spaceGrotesk text-white'>
+                          Continuous improvement
+                        </h5>
+                      </div>
+                      <div className='accordion-icon is-chevron'>
+                        <Image
+                          src='/assets/img_placeholder/th-4/icon-white-cheveron-down.svg'
+                          alt='chevron'
+                          width={30}
+                          height={30}
+                        />
+                        <Image
+                          src='/assets/img_placeholder/th-4/icon-green-cheveron-up.svg'
+                          alt='chevron'
+                          width={30}
+                          height={30}
+                          className='absolute inset-0'
+                        />
+                      </div>
+                    </div>
+                    <div className='accordion-content disappear translate-y-3 text-lg leading-[1.42] lg:text-[21px]'>
+                      <p>
+                        You can easily create a custom AI account. You need to
+                        input some required information.
+                      </p>
+                    </div>
+                  </li>
+                  {/* Accordion items */}
+                </ul>
+                {/* Process Accordion */}
+                <div className='jos' data-jos_animation='fade-right'>
                   {/* Section Content Block */}
                   <div className='mb-6'>
-                    <div className='mx-auto md:mx-0 md:max-w-none'>
-                      <h2>Freely ask us for more information</h2>
-                    </div>
+                    <h2 className='font-spaceGrotesk text-4xl font-medium leading-[1.06] -tracking-[2px] text-white sm:text-[44px] lg:text-[56px] xl:text-[70px]'>
+                      Optimize the highest security standards
+                    </h2>
                   </div>
                   {/* Section Content Block */}
-                  <div className='text-lg leading-[1.4] lg:text-[21px]'>
-                    <p className='mb-7 last:mb-0'>
-                      Our AI SaaS solutions can be quickly deployed, enabling
-                      users to start benefiting from AI capabilities without
-                      lengthy setup and development times in fast-paced
-                      industries.
+                  <div>
+                    <p className='mb-8 text-lg leading-[1.42] last:mb-0 lg:text-[21px]'>
+                      With AI cybersecurity solutions you can also save time and
+                      money integrating disparate vendors, reduce training time,
+                      and accelerate your time to discovery and response with
+                      everything you need.
                     </p>
-                    <Link
-                      href='/faq-1'
-                      className='button mt-5 rounded-[50px] border-2 border-black bg-black py-4 text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white'
-                    >
-                      Ask you questions
-                    </Link>
                   </div>
-                </div>
-                {/* FAQ Left Block */}
-
-                {/* FAQ Right Block */}
-                <div
-                  className='jos md:ml-10 lg:ml-20 xl:ml-32'
-                  data-jos_animation='fade-left'
-                >
-                  {/* Accordion*/}
-                  <ul className='accordion'>
-                    {/* Accordion items */}
-                    <li
-                      className={`accordion-item border-b-[1px] border-[#DBD6CF] pb-6 pt-6 first:pt-0 last:border-b-0 last:pb-0 ${
-                        activeIndex === 0 ? 'active' : ''
-                      }`}
-                      onClick={() => handleAccordion(0)}
-                    >
-                      <div className='accordion-header flex items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px] text-black lg:text-[28px]'>
-                        <p>How do I start AI SaaS?</p>
-                        <div className='accordion-icon'>
-                          <Image
-                            src='/assets/img_placeholder/plus.svg'
-                            width={24}
-                            height={24}
-                            alt='plus'
-                          />
-                        </div>
-                      </div>
-                      <div className='accordion-content text-[#2C2C2C]'>
-                        <p>
-                          Go to the our official website and require users to
-                          create an account. You ll need to provide some basic
-                          information and agree to our terms and conditions.
-                        </p>
-                      </div>
+                  {/* Counter Scroll */}
+                  <ul className='mt-[50px] grid grid-cols-1 gap-10 gap-y-5 text-center sm:grid-cols-3'>
+                    {/* Counter Items */}
+                    <li>
+                      <h3
+                        className='font-spaceGrotesk text-5xl leading-[1.05] tracking-[-1px] text-colorGreen md:text-5xl lg:text-6xl xl:text-[70px]'
+                        data-module='countup'
+                      >
+                        <span className='start-number' data-countup-number={95}>
+                          92
+                        </span>
+                        %
+                      </h3>
+                      <span className='mt-4 block text-[21px] font-normal'>
+                        Reduce Risk
+                      </span>
                     </li>
-                    {/* Accordion items */}
-                    {/* Accordion items */}
-                    <li
-                      className={`accordion-item border-b-[1px] border-[#DBD6CF] pb-6 pt-6 first:pt-0 last:border-b-0 last:pb-0 ${
-                        activeIndex === 1 ? 'active' : ''
-                      }`}
-                      onClick={() => handleAccordion(1)}
-                    >
-                      <div className='accordion-header flex items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px] text-black lg:text-[28px]'>
-                        <p>Can I customize AI SaaS solutions?</p>
-                        <div className='accordion-icon'>
-                          <Image
-                            src='/assets/img_placeholder/plus.svg'
-                            width={24}
-                            height={24}
-                            alt='plus'
-                          />
-                        </div>
-                      </div>
-                      <div className='accordion-content text-[#2C2C2C]'>
-                        <p>
-                          Go to the our official website and require users to
-                          create an account. You ll need to provide some basic
-                          information and agree to our terms and conditions.
-                        </p>
-                      </div>
+                    {/* Counter Items */}
+                    {/* Counter Items */}
+                    <li>
+                      <h3
+                        className='font-spaceGrotesk text-5xl leading-[1.05] tracking-[-1px] text-colorGreen md:text-5xl lg:text-6xl xl:text-[70px]'
+                        data-module='countup'
+                      >
+                        <span className='start-number' data-countup-number={50}>
+                          50
+                        </span>
+                        %
+                      </h3>
+                      <span className='mt-4 block text-[21px] font-normal'>
+                        Reduce Costs
+                      </span>
                     </li>
-                    {/* Accordion items */}
-                    {/* Accordion items */}
-                    <li
-                      className={`accordion-item border-b-[1px] border-[#DBD6CF] pb-6 pt-6 first:pt-0 last:border-b-0 last:pb-0 ${
-                        activeIndex === 2 ? 'active' : ''
-                      }`}
-                      onClick={() => handleAccordion(2)}
-                    >
-                      <div className='accordion-header flex items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px] text-black lg:text-[28px]'>
-                        <p>How can AI benefit my business?</p>
-                        <div className='accordion-icon'>
-                          <Image
-                            src='/assets/img_placeholder/plus.svg'
-                            width={24}
-                            height={24}
-                            alt='plus'
-                          />
-                        </div>
-                      </div>
-                      <div className='accordion-content text-[#2C2C2C]'>
-                        <p>
-                          Go to the our official website and require users to
-                          create an account. Youll need to provide some basic
-                          information and agree to our terms and conditions.
-                        </p>
-                      </div>
+                    {/* Counter Items */}
+                    {/* Counter Items */}
+                    <li>
+                      <h3
+                        className='font-spaceGrotesk text-5xl leading-[1.05] tracking-[-1px] text-colorGreen md:text-5xl lg:text-6xl xl:text-[70px]'
+                        data-module='countup'
+                      >
+                        <span className='start-number' data-countup-number={76}>
+                          76
+                        </span>
+                        %
+                      </h3>
+                      <span className='mt-4 block text-[21px] font-normal'>
+                        Maximize Value
+                      </span>
                     </li>
+                    {/* Counter Items */}
                   </ul>
-                  {/* Accordion*/}
+                  {/* Counter Scroll */}
                 </div>
-                {/* FAQ Right Block */}
               </div>
+            </div>
+            {/* Section Container */}
+          </div>
+          {/* Section Spacer */}
+        </section>
+        {/*...::: Content Section-4 End :::... */}
+        {/* Separator */}
+        <div className='global-container overflow-hidden'>
+          <div className='h-[1px] w-full bg-[#363636]' />
+        </div>
+        {/* Separator */}
+        {/*...::: FAQ Section Start :::... */}
+        <section className='faq-section'>
+          {/* Section Spacer */}
+          <div className='py-20 xl:pb-[150px] xl:pt-[130px]'>
+            {/* Section Container */}
+            <div className='global-container'>
+              {/* Section Content Block */}
+              <div className='jos mx-auto mb-10 text-center md:mb-16 md:max-w-xl lg:mb-20 lg:max-w-3xl xl:max-w-[856px]'>
+                <h2 className='font-spaceGrotesk text-4xl font-medium leading-[1.06] -tracking-[2px] text-white sm:text-[44px] lg:text-[56px] xl:text-[70px]'>
+                  Our experts are able to answer all your questions
+                </h2>
+              </div>
+              {/* Section Content Block */}
+              {/* Accordion*/}
+              <ul className='accordion flex flex-col gap-y-6'>
+                {/* Accordion items */}
+                <li
+                  className={`jos accordion-item is-2 rounded-[10px] bg-[#121212] px-7 py-[30px] ${
+                    activeIndexTwo === 0 ? 'active' : ''
+                  }`}
+                  data-jos_delay='0.1'
+                >
+                  <div
+                    onClick={() => handleAccordionTwo(0)}
+                    className='accordion-header mb-[10px] flex items-center justify-between text-xl leading-[1.33] -tracking-[1px] lg:text-3xl'
+                  >
+                    <h5 className='font-spaceGrotesk text-white'>
+                      What is AI cybersecurity, and how does it differ from
+                      traditional cybersecurity?
+                    </h5>
+                    <div className='accordion-icon is-outline-green'>
+                      <span className='accordion-icon-plus' />
+                    </div>
+                  </div>
+                  <div className='accordion-content'>
+                    <p>
+                      AI refers to the simulation of human intelligence in
+                      machines, enabling them to perform tasks that typically
+                      require human intelligence, such as learning, reasoning,
+                      problem-solving, and decision-making.
+                    </p>
+                  </div>
+                </li>
+                {/* Accordion items */}
+                {/* Accordion items */}
+                <li
+                  className={`jos accordion-item is-2 rounded-[10px] bg-[#121212] px-7 py-[30px] ${
+                    activeIndexTwo === 1 ? 'active' : ''
+                  }`}
+                  data-jos_delay='0.1'
+                >
+                  <div
+                    onClick={() => handleAccordionTwo(1)}
+                    className='accordion-header mb-[10px] flex items-center justify-between text-xl leading-[1.33] -tracking-[1px] lg:text-3xl'
+                  >
+                    <h5 className='font-spaceGrotesk text-white'>
+                      What types of threats can AI cybersecurity protect
+                      against?
+                    </h5>
+                    <div className='accordion-icon is-outline-green'>
+                      <span className='accordion-icon-plus' />
+                    </div>
+                  </div>
+                  <div className='accordion-content'>
+                    <p>
+                      AI refers to the simulation of human intelligence in
+                      machines, enabling them to perform tasks that typically
+                      require human intelligence, such as learning, reasoning,
+                      problem-solving, and decision-making.
+                    </p>
+                  </div>
+                </li>
+                {/* Accordion items */}
+                {/* Accordion items */}
+                <li
+                  className={`jos accordion-item is-2 rounded-[10px] bg-[#121212] px-7 py-[30px] ${
+                    activeIndexTwo === 2 ? 'active' : ''
+                  }`}
+                  data-jos_delay='0.1'
+                >
+                  <div
+                    onClick={() => handleAccordionTwo(2)}
+                    className='accordion-header mb-[10px] flex items-center justify-between text-xl leading-[1.33] -tracking-[1px] lg:text-3xl'
+                  >
+                    <h5 className='font-spaceGrotesk text-white'>
+                      How does AI help in threat detection and prevention?
+                    </h5>
+                    <div className='accordion-icon is-outline-green'>
+                      <span className='accordion-icon-plus' />
+                    </div>
+                  </div>
+                  <div className='accordion-content'>
+                    <p>
+                      AI refers to the simulation of human intelligence in
+                      machines, enabling them to perform tasks that typically
+                      require human intelligence, such as learning, reasoning,
+                      problem-solving, and decision-making.
+                    </p>
+                  </div>
+                </li>
+                {/* Accordion items */}
+                {/* Accordion items */}
+                <li
+                  className={`jos accordion-item is-2 rounded-[10px] bg-[#121212] px-7 py-[30px] ${
+                    activeIndexTwo === 3 ? 'active' : ''
+                  }`}
+                  data-jos_delay='0.1'
+                >
+                  <div
+                    onClick={() => handleAccordionTwo(3)}
+                    className='accordion-header mb-[10px] flex items-center justify-between text-xl leading-[1.33] -tracking-[1px] lg:text-3xl'
+                  >
+                    <h5 className='font-spaceGrotesk text-white'>
+                      Is AI cybersecurity effective against zero-day attacks?
+                    </h5>
+                    <div className='accordion-icon is-outline-green'>
+                      <span className='accordion-icon-plus' />
+                    </div>
+                  </div>
+                  <div className='accordion-content'>
+                    <p>
+                      AI refers to the simulation of human intelligence in
+                      machines, enabling them to perform tasks that typically
+                      require human intelligence, such as learning, reasoning,
+                      problem-solving, and decision-making.
+                    </p>
+                  </div>
+                </li>
+                {/* Accordion items */}
+                {/* Accordion items */}
+                <li
+                  className={`jos accordion-item is-2 rounded-[10px] bg-[#121212] px-7 py-[30px] ${
+                    activeIndexTwo === 4 ? 'active' : ''
+                  }`}
+                  data-jos_delay='0.1'
+                >
+                  <div
+                    onClick={() => handleAccordionTwo(4)}
+                    className='accordion-header mb-[10px] flex items-center justify-between text-xl leading-[1.33] -tracking-[1px] lg:text-3xl'
+                  >
+                    <h5 className='font-spaceGrotesk text-white'>
+                      What is the role of human cybersecurity professionals in
+                      AI cybersecurity?
+                    </h5>
+                    <div className='accordion-icon is-outline-green'>
+                      <span className='accordion-icon-plus' />
+                    </div>
+                  </div>
+                  <div className='accordion-content'>
+                    <p>
+                      AI refers to the simulation of human intelligence in
+                      machines, enabling them to perform tasks that typically
+                      require human intelligence, such as learning, reasoning,
+                      problem-solving, and decision-making.
+                    </p>
+                  </div>
+                </li>
+                {/* Accordion items */}
+              </ul>
+              {/* Accordion*/}
             </div>
             {/* Section Container */}
           </div>
           {/* Section Spacer */}
         </section>
         {/*...::: FAQ Section End :::... */}
-
         {/*...::: Testimonial Section Start :::... */}
-        <section className='testimonial-section'>
+        <section id='testimonial-section'>
           {/* Section Spacer */}
-          <div className='bg-black pb-40 pt-20 xl:pb-[200px] xl:pt-[130px]'>
+          <div className='pb-20 xl:pb-[150px]'>
             {/* Section Container */}
             <div className='global-container'>
-              {/* Section Content Block */}
-              <div className='jos mb-10 text-center lg:mb-16 xl:mb-20'>
-                <div className='mx-auto max-w-[300px] lg:max-w-[600px] xl:max-w-[680px]'>
-                  <h2 className='text-white'>
-                    Positive feedback from our users
+              <div className='mb-10 flex flex-wrap items-center justify-between gap-8 md:mb-16 lg:mb-20'>
+                {/* Section Content Block */}
+                <div className='jos max-w-[480px] lg:max-w-2xl xl:max-w-[840px]'>
+                  <h2 className='font-spaceGrotesk text-4xl font-medium leading-[1.06] -tracking-[2px] text-white sm:text-[44px] lg:text-[56px] xl:text-[70px]'>
+                    What people are saying about AI cybersecurity
                   </h2>
                 </div>
+                {/* Section Content Block */}
+                <Link
+                  rel='noopener noreferrer'
+                  href='https://www.example.com'
+                  className='button inline-block h-full rounded border-none bg-colorGreen py-3 text-base text-black after:border-none after:bg-white'
+                >
+                  Read All Trustpilot Reviews
+                </Link>
               </div>
-              {/* Section Content Block */}
-
-              {/* Testimonial List */}
-              <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
-                {/* Testimonial Item */}
-                <div
-                  className='jos flex flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white'
-                  data-jos_animation='fade-left'
-                  data-jos_delay='0.1'
-                >
-                  <div className='block'>
-                    <Image
-                      src='/assets/img_placeholder/th-1/rating.svg'
-                      alt='rating'
-                      width='146'
-                      height='25'
-                    />
-                  </div>
-                  <p>
-                    “This AI SaaS tool has revolutionized the way we process and
-                    analyze data. This is a game-changer for our business.”
-                  </p>
-                  <div className='flex items-center gap-x-4'>
-                    <div className='h-[60px] w-[60px] overflow-hidden rounded-full'>
-                      <Image
-                        src='/assets/img_placeholder/th-1/testimonial-img-1.jpg'
-                        alt='testimonial-img'
-                        width='60'
-                        height='60'
-                        className='h-full w-full object-cover object-center'
-                      />
-                    </div>
-                    <div className='flex flex-col gap-y-1'>
-                      <span className='block text-lg font-semibold leading-[1.6]'>
-                        Max Weber
-                      </span>
-                      <span className='block text-sm font-light leading-[1.4]'>
-                        HR Manager
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                {/* Testimonial Item */}
-                {/* Testimonial Item */}
-                <div
-                  className='jos flex flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white'
-                  data-jos_animation='fade-left'
-                  data-jos_delay='0.2'
-                >
-                  <div className='block'>
-                    <Image
-                      src='/assets/img_placeholder/th-1/rating.svg'
-                      alt='rating'
-                      width='146'
-                      height='25'
-                    />
-                  </div>
-                  <p>
-                    It answers immediately, and we ve seen a significant
-                    reduction in response time. Our customers love it and so do
-                    we!
-                  </p>
-                  <div className='flex items-center gap-x-4'>
-                    <div className='h-[60px] w-[60px] overflow-hidden rounded-full'>
-                      <Image
-                        src='/assets/img_placeholder/th-1/testimonial-img-2.jpg'
-                        alt='testimonial-img'
-                        width='60'
-                        height='60'
-                        className='h-full w-full object-cover object-center'
-                      />
-                    </div>
-                    <div className='flex flex-col gap-y-1'>
-                      <span className='block text-lg font-semibold leading-[1.6]'>
-                        Douglas Smith
-                      </span>
-                      <span className='block text-sm font-light leading-[1.4]'>
-                        Businessman
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                {/* Testimonial Item */}
-                {/* Testimonial Item */}
-                <div
-                  className='jos flex flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white'
-                  data-jos_animation='fade-left'
-                  data-jos_delay='0.3'
-                >
-                  <div className='block'>
-                    <Image
-                      src='/assets/img_placeholder/th-1/rating.svg'
-                      alt='rating'
-                      width='146'
-                      height='25'
-                    />
-                  </div>
-                  <p>
-                    It is accurate, fast and supports multiple languages
-                    support. It is a must for any international business
-                    success.
-                  </p>
-                  <div className='flex items-center gap-x-4'>
-                    <div className='h-[60px] w-[60px] overflow-hidden rounded-full'>
-                      <Image
-                        src='/assets/img_placeholder/th-1/testimonial-img-3.jpg'
-                        alt='testimonial-img'
-                        width='60'
-                        height='60'
-                        className='h-full w-full object-cover object-center'
-                      />
-                    </div>
-                    <div className='flex flex-col gap-y-1'>
-                      <span className='block text-lg font-semibold leading-[1.6]'>
-                        Abraham Maslo
-                      </span>
-                      <span className='block text-sm font-light leading-[1.4]'>
-                        Founder @ Marketing Company
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                {/* Testimonial Item */}
-                {/* Testimonial Item */}
-                <div
-                  className='jos flex flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white'
-                  data-jos_animation='fade-right'
-                  data-jos_delay='0.1'
-                >
-                  <div className='block'>
-                    <Image
-                      src='/assets/img_placeholder/th-1/rating.svg'
-                      alt='rating'
-                      width='146'
-                      height='25'
-                    />
-                  </div>
-                  <p>
-                    Security is a top concern for us, and AI SaaS takes it
-                    seriously. It s a reassuring layer of protection for our
-                    organization.
-                  </p>
-                  <div className='flex items-center gap-x-4'>
-                    <div className='h-[60px] w-[60px] overflow-hidden rounded-full'>
-                      <Image
-                        src='/assets/img_placeholder/th-1/testimonial-img-4.jpg'
-                        alt='testimonial-img'
-                        width='60'
-                        height='60'
-                        className='h-full w-full object-cover object-center'
-                      />
-                    </div>
-                    <div className='flex flex-col gap-y-1'>
-                      <span className='block text-lg font-semibold leading-[1.6]'>
-                        Jack Fayol
-                      </span>
-                      <span className='block text-sm font-light leading-[1.4]'>
-                        HR Manager
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                {/* Testimonial Item */}
-                {/* Testimonial Item */}
-                <div
-                  className='jos flex flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white'
-                  data-jos_animation='fade-right'
-                  data-jos_delay='0.2'
-                >
-                  <div className='block'>
-                    <Image
-                      src='/assets/img_placeholder/th-1/rating.svg'
-                      alt='rating'
-                      width='146'
-                      height='25'
-                    />
-                  </div>
-                  <p>
-                    We were concerned about integrating their APIs were well
-                    documented, and their support team was super cool.
-                  </p>
-                  <div className='flex items-center gap-x-4'>
-                    <div className='h-[60px] w-[60px] overflow-hidden rounded-full'>
-                      <Image
-                        src='/assets/img_placeholder/th-1/testimonial-img-5.jpg'
-                        alt='testimonial-img'
-                        width='60'
-                        height='60'
-                        className='h-full w-full object-cover object-center'
-                      />
-                    </div>
-                    <div className='flex flex-col gap-y-1'>
-                      <span className='block text-lg font-semibold leading-[1.6]'>
-                        Karen Lynn
-                      </span>
-                      <span className='block text-sm font-light leading-[1.4]'>
-                        Software Engineer
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                {/* Testimonial Item */}
-                {/* Testimonial Item */}
-                <div
-                  className='jos flex flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white'
-                  data-jos_animation='fade-right'
-                  data-jos_delay='0.3'
-                >
-                  <div className='block'>
-                    <Image
-                      src='/assets/img_placeholder/th-1/rating.svg'
-                      alt='rating'
-                      width='146'
-                      height='25'
-                    />
-                  </div>
-                  <p>
-                    The return on investment has exceeded our expectations. it s
-                    an investment in the future of our business.
-                  </p>
-                  <div className='flex items-center gap-x-4'>
-                    <div className='h-[60px] w-[60px] overflow-hidden rounded-full'>
-                      <Image
-                        src='/assets/img_placeholder/th-1/testimonial-img-6.jpg'
-                        alt='testimonial-img'
-                        width='60'
-                        height='60'
-                        className='h-full w-full object-cover object-center'
-                      />
-                    </div>
-                    <div className='flex flex-col gap-y-1'>
-                      <span className='block text-lg font-semibold leading-[1.6]'>
-                        Henry Ochi
-                      </span>
-                      <span className='block text-sm font-light leading-[1.4]'>
-                        Bank Manager
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                {/* Testimonial Item */}
-              </div>
-              {/* Testimonial List */}
             </div>
             {/* Section Container */}
+            {/* Testimonial List */}
+            <div className='horizontal-slide-from-right-to-left grid w-[200%] grid-flow-col gap-6'>
+              {/* Testimonial Item */}
+              <div className='flex w-[415px] flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white'>
+                <div className='block'>
+                  <Image
+                    src='/assets/img_placeholder/th-4/icon-green-rating.svg'
+                    alt='rating'
+                    width={146}
+                    height={25}
+                  />
+                </div>
+                <p>
+                  “This AI SaaS tool has revolutionized the way we process and
+                  analyze data. This is a game-changer for our business.”
+                </p>
+                <div className='flex items-center gap-x-4'>
+                  <div className='h-[60px] w-[60px] overflow-hidden rounded-full'>
+                    <Image
+                      src='/assets/img_placeholder/th-1/testimonial-img-1.jpg'
+                      alt='testimonial-img'
+                      width={60}
+                      height={60}
+                      className='h-full w-full object-cover object-center'
+                    />
+                  </div>
+                  <div className='flex flex-col gap-y-1'>
+                    <span className='block text-lg font-semibold leading-[1.6]'>
+                      Max Weber
+                    </span>
+                    <span className='block text-sm font-light leading-[1.4]'>
+                      HR Manager
+                    </span>
+                  </div>
+                </div>
+              </div>
+              {/* Testimonial Item */}
+              {/* Testimonial Item */}
+              <div className='flex w-[415px] flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white'>
+                <div className='block'>
+                  <Image
+                    src='/assets/img_placeholder/th-4/icon-green-rating.svg'
+                    alt='rating'
+                    width={146}
+                    height={25}
+                  />
+                </div>
+                <p>
+                  It answers immediately, and we ve seen a significant reduction
+                  in response time. Our customers love it and so do we!
+                </p>
+                <div className='flex items-center gap-x-4'>
+                  <div className='h-[60px] w-[60px] overflow-hidden rounded-full'>
+                    <Image
+                      src='/assets/img_placeholder/th-1/testimonial-img-2.jpg'
+                      alt='testimonial-img'
+                      width={60}
+                      height={60}
+                      className='h-full w-full object-cover object-center'
+                    />
+                  </div>
+                  <div className='flex flex-col gap-y-1'>
+                    <span className='block text-lg font-semibold leading-[1.6]'>
+                      Douglas Smith
+                    </span>
+                    <span className='block text-sm font-light leading-[1.4]'>
+                      Businessman
+                    </span>
+                  </div>
+                </div>
+              </div>
+              {/* Testimonial Item */}
+              {/* Testimonial Item */}
+              <div className='flex w-[415px] flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white'>
+                <div className='block'>
+                  <Image
+                    src='/assets/img_placeholder/th-4/icon-green-rating.svg'
+                    alt='rating'
+                    width={146}
+                    height={25}
+                  />
+                </div>
+                <p>
+                  It is accurate, fast and supports multiple languages support.
+                  It is a must for any international business success.
+                </p>
+                <div className='flex items-center gap-x-4'>
+                  <div className='h-[60px] w-[60px] overflow-hidden rounded-full'>
+                    <Image
+                      src='/assets/img_placeholder/th-1/testimonial-img-3.jpg'
+                      alt='testimonial-img'
+                      width={60}
+                      height={60}
+                      className='h-full w-full object-cover object-center'
+                    />
+                  </div>
+                  <div className='flex flex-col gap-y-1'>
+                    <span className='block text-lg font-semibold leading-[1.6]'>
+                      Abraham Maslo
+                    </span>
+                    <span className='block text-sm font-light leading-[1.4]'>
+                      Founder @ Marketing Company
+                    </span>
+                  </div>
+                </div>
+              </div>
+              {/* Testimonial Item */}
+              {/* Testimonial Item */}
+              <div className='flex w-[415px] flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white'>
+                <div className='block'>
+                  <Image
+                    src='/assets/img_placeholder/th-4/icon-green-rating.svg'
+                    alt='rating'
+                    width={146}
+                    height={25}
+                  />
+                </div>
+                <p>
+                  Security is a top concern for us, and AI SaaS takes it
+                  seriously. It s a reassuring layer of protection for our
+                  organization.
+                </p>
+                <div className='flex items-center gap-x-4'>
+                  <div className='h-[60px] w-[60px] overflow-hidden rounded-full'>
+                    <Image
+                      src='/assets/img_placeholder/th-1/testimonial-img-4.jpg'
+                      alt='testimonial-img'
+                      width={60}
+                      height={60}
+                      className='h-full w-full object-cover object-center'
+                    />
+                  </div>
+                  <div className='flex flex-col gap-y-1'>
+                    <span className='block text-lg font-semibold leading-[1.6]'>
+                      Jack Fayol
+                    </span>
+                    <span className='block text-sm font-light leading-[1.4]'>
+                      HR Manager
+                    </span>
+                  </div>
+                </div>
+              </div>
+              {/* Testimonial Item */}
+              {/* Testimonial Item */}
+              <div className='flex w-[415px] flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white'>
+                <div className='block'>
+                  <Image
+                    src='/assets/img_placeholder/th-4/icon-green-rating.svg'
+                    alt='rating'
+                    width={146}
+                    height={25}
+                  />
+                </div>
+                <p>
+                  We were concerned about integrating their APIs were well
+                  documented, and their support team was super cool.
+                </p>
+                <div className='flex items-center gap-x-4'>
+                  <div className='h-[60px] w-[60px] overflow-hidden rounded-full'>
+                    <Image
+                      src='/assets/img_placeholder/th-1/testimonial-img-5.jpg'
+                      alt='testimonial-img'
+                      width={60}
+                      height={60}
+                      className='h-full w-full object-cover object-center'
+                    />
+                  </div>
+                  <div className='flex flex-col gap-y-1'>
+                    <span className='block text-lg font-semibold leading-[1.6]'>
+                      Karen Lynn
+                    </span>
+                    <span className='block text-sm font-light leading-[1.4]'>
+                      Software Engineer
+                    </span>
+                  </div>
+                </div>
+              </div>
+              {/* Testimonial Item */}
+              {/* Testimonial Item */}
+              <div className='flex w-[415px] flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white'>
+                <div className='block'>
+                  <Image
+                    src='/assets/img_placeholder/th-4/icon-green-rating.svg'
+                    alt='rating'
+                    width={146}
+                    height={25}
+                  />
+                </div>
+                <p>
+                  The return on investment has exceeded our expectations. it s
+                  an investment in the future of our business.
+                </p>
+                <div className='flex items-center gap-x-4'>
+                  <div className='h-[60px] w-[60px] overflow-hidden rounded-full'>
+                    <Image
+                      src='/assets/img_placeholder/th-1/testimonial-img-6.jpg'
+                      alt='testimonial-img'
+                      width={60}
+                      height={60}
+                      className='h-full w-full object-cover object-center'
+                    />
+                  </div>
+                  <div className='flex flex-col gap-y-1'>
+                    <span className='block text-lg font-semibold leading-[1.6]'>
+                      Henry Ochi
+                    </span>
+                    <span className='block text-sm font-light leading-[1.4]'>
+                      Bank Manager
+                    </span>
+                  </div>
+                </div>
+              </div>
+              {/* Testimonial Item */}
+              {/* Testimonial Item */}
+              <div className='flex w-[415px] flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white'>
+                <div className='block'>
+                  <Image
+                    src='/assets/img_placeholder/th-4/icon-green-rating.svg'
+                    alt='rating'
+                    width={146}
+                    height={25}
+                  />
+                </div>
+                <p>
+                  “This AI SaaS tool has revolutionized the way we process and
+                  analyze data. This is a game-changer for our business.”
+                </p>
+                <div className='flex items-center gap-x-4'>
+                  <div className='h-[60px] w-[60px] overflow-hidden rounded-full'>
+                    <Image
+                      src='/assets/img_placeholder/th-1/testimonial-img-1.jpg'
+                      alt='testimonial-img'
+                      width={60}
+                      height={60}
+                      className='h-full w-full object-cover object-center'
+                    />
+                  </div>
+                  <div className='flex flex-col gap-y-1'>
+                    <span className='block text-lg font-semibold leading-[1.6]'>
+                      Max Weber
+                    </span>
+                    <span className='block text-sm font-light leading-[1.4]'>
+                      HR Manager
+                    </span>
+                  </div>
+                </div>
+              </div>
+              {/* Testimonial Item */}
+              {/* Testimonial Item */}
+              <div className='flex w-[415px] flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white'>
+                <div className='block'>
+                  <Image
+                    src='/assets/img_placeholder/th-4/icon-green-rating.svg'
+                    alt='rating'
+                    width={146}
+                    height={25}
+                  />
+                </div>
+                <p>
+                  It answers immediately, and we ve seen a significant reduction
+                  in response time. Our customers love it and so do we!
+                </p>
+                <div className='flex items-center gap-x-4'>
+                  <div className='h-[60px] w-[60px] overflow-hidden rounded-full'>
+                    <Image
+                      src='/assets/img_placeholder/th-1/testimonial-img-2.jpg'
+                      alt='testimonial-img'
+                      width={60}
+                      height={60}
+                      className='h-full w-full object-cover object-center'
+                    />
+                  </div>
+                  <div className='flex flex-col gap-y-1'>
+                    <span className='block text-lg font-semibold leading-[1.6]'>
+                      Douglas Smith
+                    </span>
+                    <span className='block text-sm font-light leading-[1.4]'>
+                      Businessman
+                    </span>
+                  </div>
+                </div>
+              </div>
+              {/* Testimonial Item */}
+              {/* Testimonial Item */}
+              <div className='flex w-[415px] flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white'>
+                <div className='block'>
+                  <Image
+                    src='/assets/img_placeholder/th-4/icon-green-rating.svg'
+                    alt='rating'
+                    width={146}
+                    height={25}
+                  />
+                </div>
+                <p>
+                  It is accurate, fast and supports multiple languages support.
+                  It is a must for any international business success.
+                </p>
+                <div className='flex items-center gap-x-4'>
+                  <div className='h-[60px] w-[60px] overflow-hidden rounded-full'>
+                    <Image
+                      src='/assets/img_placeholder/th-1/testimonial-img-3.jpg'
+                      alt='testimonial-img'
+                      width={60}
+                      height={60}
+                      className='h-full w-full object-cover object-center'
+                    />
+                  </div>
+                  <div className='flex flex-col gap-y-1'>
+                    <span className='block text-lg font-semibold leading-[1.6]'>
+                      Abraham Maslo
+                    </span>
+                    <span className='block text-sm font-light leading-[1.4]'>
+                      Founder @ Marketing Company
+                    </span>
+                  </div>
+                </div>
+              </div>
+              {/* Testimonial Item */}
+            </div>
+            {/* Testimonial List */}
           </div>
-          {/* Section Spacer */}
+        </section>
+        {/*...::: Testimonial Section End :::... */}
+        {/*...::: CTA Section Start :::... */}
+        <section id='cta-section'>
+          <div className='global-container'>
+            <div className='rounded-[10px] bg-colorGreen px-5 py-[60px] md:py-20 xl:py-[100px]'>
+              {/* Section Content Block */}
+              <div className='jos mx-auto max-w-[500px] text-center lg:max-w-2xl xl:max-w-[840px]'>
+                <h2 className='font-spaceGrotesk text-4xl font-medium leading-[1.06] -tracking-[2px] text-black sm:text-[44px] lg:text-[56px] xl:text-[70px]'>
+                  Protect your organization with the power of AI
+                </h2>
+              </div>
+              {/* Section Content Block */}
+              <div
+                className='jos mt-8 flex flex-wrap justify-center gap-6 md:mt-[50px]'
+                data-jos_animation='fade'
+              >
+                <Link
+                  rel='noopener noreferrer'
+                  href='https://www.example.com'
+                  className='button inline-block h-full rounded border-2 border-transparent bg-black py-3 text-base text-colorGreen after:border-colorGreen after:bg-colorGreen hover:text-black'
+                >
+                  Get Started Now
+                </Link>
+                <Link
+                  href='/pricing'
+                  className='button inline-block h-full rounded border-2 border-black bg-colorGreen py-3 text-base text-black after:bg-black hover:text-colorGreen'
+                >
+                  View Our Plans
+                </Link>
+              </div>
+            </div>
+          </div>
         </section>
         {/*...::: Testimonial Section Start :::... */}
 
