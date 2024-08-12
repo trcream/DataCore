@@ -78,7 +78,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
         </div>
         <ul className={`site-menu-main ${color}`}>
           {/* Global navbar */}
-          <li
+          {/* <li
             onClick={(e) => handleSubMenu(e, 1)}
             className='nav-item nav-item-has-children'
           >
@@ -109,7 +109,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                 <Link href='/home-4'> home 04</Link>
               </li>
             </ul>
-          </li>
+          </li> */}
           <li className='nav-item'>
             <Link href='/about' className='nav-link-item'>
               About
@@ -136,9 +136,9 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
               <li className='sub-menu--item'>
                 <Link href='/services'>Services</Link>
               </li>
-              <li className='sub-menu--item'>
+              {/* <li className='sub-menu--item'>
                 <Link href='/service-details'>Service Details</Link>
-              </li>
+              </li> */}
             </ul>
           </li>
           <li
@@ -163,7 +163,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                 onClick={(e) => handleSubMenuSub(e, 1)}
                 className='sub-menu--item nav-item-has-children'
               >
-                <Link href='#' data-menu-get='h3' className='drop-trigger'>
+                {/* <Link href='#' data-menu-get='h3' className='drop-trigger'>
                   Blogs
                   <Image
                     className='dropdown-icon'
@@ -172,7 +172,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                     width={16}
                     height={16}
                   />
-                </Link>
+                </Link> */}
                 <ul
                   className={`sub-menu shape-none ${
                     mobileSubMenuSub === 1 && 'active'
@@ -208,11 +208,11 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   id='submenu-5'
                 >
                   <li className='sub-menu--item'>
-                    <Link href='/team'>Teams</Link>
+                    <Link href='/team'>Team</Link>
                   </li>
-                  <li className='sub-menu--item'>
+                  {/* <li className='sub-menu--item'>
                     <Link href='/team-details'>Teams Details</Link>
-                  </li>
+                  </li> */}
                 </ul>
               </li>
               <li
@@ -238,16 +238,16 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   <li className='sub-menu--item'>
                     <Link href='/faq-1'>FAQ-1</Link>
                   </li>
-                  <li className='sub-menu--item'>
+                  {/* <li className='sub-menu--item'>
                     <Link href='/faq-2'>FAQ-2</Link>
-                  </li>
+                  </li> */}
                 </ul>
               </li>
               <li
                 onClick={(e) => handleSubMenuSub(e, 4)}
                 className='sub-menu--item nav-item-has-children'
               >
-                <Link href='#' data-menu-get='h3' className='drop-trigger'>
+                {/* <Link href='#' data-menu-get='h3' className='drop-trigger'>
                   Portfolio
                   <Image
                     className='dropdown-icon'
@@ -256,7 +256,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                     width={16}
                     height={16}
                   />
-                </Link>
+                </Link> */}
                 <ul
                   className={`sub-menu shape-none ${
                     mobileSubMenuSub === 4 && 'active'
@@ -286,7 +286,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                 onClick={(e) => handleSubMenuSub(e, 5)}
                 className='sub-menu--item nav-item-has-children'
               >
-                <Link href='#' data-menu-get='h3' className='drop-trigger'>
+                {/* <Link href='#' data-menu-get='h3' className='drop-trigger'>
                   Utilities
                   <Image
                     className='dropdown-icon'
@@ -295,7 +295,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                     width={16}
                     height={16}
                   />
-                </Link>
+                </Link> */}
                 <ul
                   className={`sub-menu shape-none ${
                     mobileSubMenuSub === 5 && 'active'
